@@ -1,0 +1,39 @@
+.App {
+    // &__banner {
+    //     width: 100%;
+    //     background-color: $dark;
+    //     height: 100px;
+    //     padding: 0 25px 0 45px;
+    //     display: grid;
+    //     grid-template-columns: 152px auto 133px;
+    //     &-text {
+    //         font-weight: bold;
+    //         font-size: 24px;
+    //         line-height: 32px;
+    //         color: #FFFFFF;
+    //         padding-left: 83px;
+    //         padding-top: 18px;
+    //     }
+    // }
+
+    
+    background-color: #1B1B1B;
+    .container{
+        position: relative;
+        display: block;
+        max-width: 1440px;
+        min-height: 800px;
+        margin: 0 auto;
+        &_unionCircles{
+            display: block;
+            position: absolute;
+            left: -180px;
+            top: -50px;
+            height: 710px;
+        }
+    }
+  
+}
+
+
+
