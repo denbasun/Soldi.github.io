@@ -1,4 +1,23 @@
 .mainPage {
-   color: white;
-   text-align: center;
+   display: flex;
+   justify-content: space-around;
+   // align-items: center;
+   margin: 0 auto;
+   .mainPage_wrapper{
+      margin-left: 120px;
+      h1{
+         margin: 0;
+         padding: 0;
+         margin-top: 140px;
+         font-weight: 600;
+         font-size: 110px;
+         color: #fff;
+         line-height: 109%;
+      }
+      
+   }
+   img{
+      
+      margin: 110px 150px 0 0;
+   }
 }

@@ -8,9 +8,10 @@ function App() {
   return (
     <div className="App">
       <div className="container">
-          <Header></Header>
-          <img src={unionImage} alt="circles" className="container_unionCircles"/>
-          <MainPage></MainPage>
+        <img src={unionImage} alt="circles" className="container_unionCircles"/>
+        <Header></Header>
+        <hr/>
+        <MainPage></MainPage>
       </div>
     </div>
   );

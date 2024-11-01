@@ -2,17 +2,29 @@ import logo from '../../../src/logo_blue.png'
 import './Header.scss';
 function Header() {
     return (
-    <div className="mainPage">
-        <nav class="navbar">
-            <a href="#" class="logo_wrapper">
+    <div className="header">
+        <nav className="navbar">
+            <a href="#" className="logo_wrapper">
                 <img src={logo} alt="logo" ></img>
             </a>
-            <ul class="nav-links">
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#services">Услуги</a></li>
-                <li><a href="#contact">Контакты</a></li>
+            <ul className="nav-links">
+                <li><a href="#">About us</a></li>
+                <li><a href="#">How It Works</a></li>
+                <li><a href="#">How To Start</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contacts</a></li>
             </ul>
+            <div className="language-selector">
+                <select className='selection' name="language">\
+                    <option value="en">ENG</option>
+                    <option value="ru">CZ</option>
+                    <option value="de">UKR</option>
+                </select>
+            </div>
         </nav>
+          
+         
     </div>
     );
   }
