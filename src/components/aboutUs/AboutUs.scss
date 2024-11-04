@@ -1,0 +1,18 @@
+.aboutUs{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 57px 200px 135px 120px;
+    .aboutInfoWrapper{
+        min-height: 247px;
+        width: 437px;
+        
+        .aboutDescr{
+            margin-top: 36px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            color: #fff;
+        }
+    }
+}

@@ -1,4 +1,5 @@
 .mainPage {
+   min-height: 716px;
    display: flex;
    justify-content: space-around;
    // align-items: center;
@@ -17,7 +18,8 @@
       
    }
    img{
-      
+      width: 335px;
+      height: 450px;
       margin: 110px 150px 0 0;
    }
 }
