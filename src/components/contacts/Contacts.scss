@@ -1,0 +1,101 @@
+.contacts{
+    min-height: 700px;
+    padding-top: 65px;
+    hr{
+        margin-top: 67px;
+    }
+    .footer_text{
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: #949da8;
+        text-align: center;
+        margin-top: 17px;
+    }
+    .contacts-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 1200px;
+        margin: 0 auto;
+        .contact-card{
+            position: relative;
+            border-radius: 20px;
+            width: 592px;
+            height: 482px;
+            background-color: #111;
+            overflow: hidden;
+            z-index: 2;
+            .contact-union-circles{
+                height: 820px;
+                position: absolute;
+                rotate: 20deg;
+                top: -360px;
+                left: -476px;
+                z-index: -1;
+            }
+            .socialmedia-wrapper{
+                margin-top: 420px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 350px;
+                height: 32px;
+                margin-left: 40px;
+                a{
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    text-decoration: none;
+                    margin-right: 60px;
+                    img{
+                        margin-right: 16px;
+                    }
+                }
+                
+                .social-media-text{
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 143%;
+                    color: #fff;
+                    
+                }
+            }
+        }
+        .form-card{
+            h2{
+                margin-top: 0px;
+            }
+            border-radius: 20px;
+            width: 592px;
+            height: 482px;
+            background-color: #111;
+            padding: 36px 48px 48px 36px;
+            .contact-form{
+                .form-group{
+                    margin-top: 16px;
+                    input{
+                        color: white;
+                        margin-top: 6px;
+                        border-radius: 6px;
+                        padding: 15px 16px;
+                        width: 508px;
+                        height: 52px;
+                        background-color: #1b1b1b;
+                        border: none;
+                    }
+                    label{
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 150%;
+                        color: #fff;
+                        span{
+                            color: #f05773;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}

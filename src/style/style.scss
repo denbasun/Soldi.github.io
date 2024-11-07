@@ -1,4 +1,4 @@
-.linkText{
+.link-text{
     text-transform: uppercase;
     font-weight: 700;
     font-size: 14px;
@@ -11,4 +11,11 @@ h2{
     font-size: 32px;
     line-height: 100%;
     color: #fff;
+}
+hr{
+    border: 1px solid #484848;
+    max-width: 1196px;
+    height: 2px;
+    margin: 0 auto;
+    
 }

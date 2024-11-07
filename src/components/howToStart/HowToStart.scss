@@ -1,0 +1,54 @@
+.how-to-start{
+    position: relative;
+    min-height: 590px;
+    padding-top: 130px;
+    .how-to-start-wrapper{
+        margin-left: 120px;
+    }
+    .union-circles-pic{
+        position: absolute;
+        rotate: -25deg;
+        left: -425px;
+        bottom: 360px;
+        z-index: -1;
+    }
+    .how-to-start-card-wrapper{
+        margin-left: 120px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 1200px;
+        .how-to-start-card{
+            position: relative;
+            margin-top: 36px;
+            border-radius: 20px;
+            width: 592px;
+            height: 236px;
+            background-color: #111;
+            .how-to-start-text{
+                margin: 32px 32px;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 143%;
+                color: #fff;
+            }
+            img{
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                
+            }
+            .scan-picture{
+                right: 40px;
+            }
+            .how-to-start-text-special{
+                margin: 99px 0 0  32px ;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 133%;
+                color: #484848;
+            }
+        }
+        
+    }
+}

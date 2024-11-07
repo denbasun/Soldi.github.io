@@ -6,41 +6,48 @@ import step4 from '../../../src/assets/step4.png'
 import step5 from '../../../src/assets/step5.png'
 import './HowItWorks.scss';
 import '../../style/style.scss';
+import HowItWorksCard from '../howItWorksCard/HowItWorksCard'
+const cardData = [
+    {stepId:1, stepText:'1. You integrate Soldi\n and get our widget', stepImg: step1, stepAlt:'Integration img'},
+    {stepId:2, stepText:'2. User selects payment \n method  and enters his data', stepImg: step2, stepAlt:'Selects payment img'},
+    {stepId:3, stepText:'3. Soldi chooses the partner \n for conducting a transaction \n and sends the data to him', stepImg: step3, stepAlt:'chooses the partner and send img'},
+    {stepId:4, stepText:'4. Our partner makes the payment and \n notifies Soldi about the results', stepImg: step4, stepAlt:'payment img'},
+    {stepId:5, stepText:'5. Soldi sends confirmation of \n completion of transactions to you', stepImg: step5, stepAlt:'completion of transactions img'}
+]
 
 function HowItWorks() {
     
     return(
-        <div className="HowItWorks">
-            <img className="unionCirclesPic" src={unionCirclesPic} alt="union_Circles_Picture" />
+        <section className="how-it-works">
+            <img className="union-circles-pic" src={unionCirclesPic} alt="union circles picture" />
 
-            <div className="howItWorksHeader">
-                <a href="#" className="linkText">HOW IT WORKS</a>  
+            <div className="how-it-works-header">
+                <a href="#" className="link-text">HOW IT WORKS</a>  
                 <h2>Just 5 steps to get your money</h2>
             </div>
-            <div className="gridWrapper">
-                <div id='item1'className="gridElement">
-                    <div className='step'>1. You integrate Soldi<br></br> and get our widget</div>
-                    <img src={step1} alt="" />
-                </div>
-                <div id='item2'className="gridElement">
-                    <div className='step'>2.  User selects payment<br></br> method  and enters his data</div>
-                    <img src={step2} alt="" />
-                </div>
-                <div id='item3'className="gridElement">
-                    <div className='step'>3. Soldi chooses the partner <br></br>for conducting a transaction<br></br> and sends the data to him</div>
-                    <img src={step3} alt="" />
-                </div>
-                <div id='item4'className="gridElement">
-                    <div className='step'>4. Our partner makes the payment and<br></br> notifies Soldi about the results</div>
-                    <img src={step4} alt="" />
-                </div>
-                <div id='item5'className="gridElement">
-                    <div className='step'>5. Soldi sends confirmation of<br></br> completion of transactions to you</div>
-                    <img src={step5} alt="" />
-                </div>
+            <div className="grid-wrapper">
+                {cardData.map(card =>{
+                    const {stepImg, stepText, stepId, stepAlt} = card;
+                     return(
+                        <HowItWorksCard 
+                            stepImg={stepImg} 
+                            stepText={stepText.split('\n').map(line => (
+                                <div>
+                                    {line}
+                                    <br/>
+                                </div>
+                            ))} 
+                            stepId={`item${stepId}`} 
+                            stepAlt = {stepAlt} 
+                            stepKey={stepId}
+                        />
+                     )   
+                })
+                }
+        
             </div>
            
-        </div>
+        </section>
         
 
     )

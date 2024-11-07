@@ -3,13 +3,13 @@ import './BinanceAdv.scss';
 
 function BinanceAdv() {
     return(
-        <div className="binanceWrapper">
-            <img className="binanceAdvLogo" src={binanceLogo} alt="binanceLogo" />
-            <img className="binanceAdvLogo" src={binanceLogo} alt="binanceLogo" />
-            <img className="binanceAdvLogo" src={binanceLogo} alt="binanceLogo" />
-            <img className="binanceAdvLogo" src={binanceLogo} alt="binanceLogo" />
-            <img className="binanceAdvLogo" src={binanceLogo} alt="binanceLogo" />
-        </div>
+        <section className="binance-wrapper">
+            <img className="binance-adv-logo" src={binanceLogo} alt="binance Logo" />
+            <img className="binance-adv-logo" src={binanceLogo} alt="binance Logo" />
+            <img className="binance-adv-logo" src={binanceLogo} alt="binance Logo" />
+            <img className="binance-adv-logo" src={binanceLogo} alt="binance Logo" />
+            <img className="binance-adv-logo" src={binanceLogo} alt="binance Logo" />
+        </section>
     )
 }
   

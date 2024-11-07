@@ -4,13 +4,13 @@ import '../../style/button.scss';
 
 function MainPage() {
     return (
-      <div className="mainPage">
-            <div className="mainPage_wrapper">
+      <section className="main-page">
+            <div className="main-page-wrapper">
               <h1>Your payment solution</h1>
               <button className="button">Contact sales</button>
             </div>
-            <img src={iphoneImg} alt="IphoneImg" />
-      </div>
+            <img src={iphoneImg} alt="Iphone img" />
+      </section>
     );
   }
   

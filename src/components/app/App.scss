@@ -1,5 +1,5 @@
 
-.App {
+.app {
     background-color: #1B1B1B;
     .container{
         z-index: 2;
@@ -8,7 +8,7 @@
         max-width: 1440px;
         min-height: 800px;
         margin: 0 auto;
-        &_unionCircles{
+        &-union-circles{
             z-index: -1;
             display: block;
             position: absolute;
@@ -17,13 +17,7 @@
             height: 800px;
         }
     }
-    hr {
-        border: 1px solid #484848;
-        max-width: 1196px;
-        height: 2px;
-        margin: 0 auto;
-        
-    }
+   
   
 }
 

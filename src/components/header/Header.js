@@ -2,9 +2,9 @@ import logo from '../../../src/logo_blue.png'
 import './Header.scss';
 function Header() {
     return (
-    <div className="header">
+    <section className="header">
         <nav className="navbar">
-            <a href="#" className="logo_wrapper">
+            <a href="#" className="logo-wrapper">
                 <img src={logo} alt="logo" ></img>
             </a>
             <ul className="nav-links">
@@ -25,7 +25,7 @@ function Header() {
         </nav>
           
          
-    </div>
+    </section>
     );
   }
   
