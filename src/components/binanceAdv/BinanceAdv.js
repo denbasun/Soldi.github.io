@@ -2,13 +2,14 @@ import binanceLogo from '../../../src/assets/Binance_logo_1.png'
 import './BinanceAdv.scss';
 
 function BinanceAdv() {
+    let binanceArr = [];
+    for(let i=0; i <=4; i++){
+        binanceArr.push(<img className="binance-adv-logo" src={binanceLogo} alt="binance Logo" key={i}/>)
+    }
+    // console.log(arr)
     return(
         <section className="binance-wrapper">
-            <img className="binance-adv-logo" src={binanceLogo} alt="binance Logo" />
-            <img className="binance-adv-logo" src={binanceLogo} alt="binance Logo" />
-            <img className="binance-adv-logo" src={binanceLogo} alt="binance Logo" />
-            <img className="binance-adv-logo" src={binanceLogo} alt="binance Logo" />
-            <img className="binance-adv-logo" src={binanceLogo} alt="binance Logo" />
+            {binanceArr}
         </section>
     )
 }

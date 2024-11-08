@@ -1,10 +1,10 @@
 import './Fees.scss';
 const svgLine = <svg width="2" height="110" viewBox="0 0 2 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path opacity="0.8" d="M1 1L1 109" stroke="url(#paint0_radial_0_1168)" stroke-linecap="round" />
+<path opacity="0.8" d="M1 1L1 109" stroke="url(#paint0_radial_0_1168)" strokeLinecap="round" />
 <defs>
   <radialGradient id="paint0_radial_0_1168" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1 51.2759) rotate(-90) scale(50.2759 3523.5)">
-    <stop stop-color="#949DA8" />
-    <stop offset="1" stop-color="#949DA8" stop-opacity="0" />
+    <stop stopColor="#949DA8" />
+    <stop offset="1" stopColor="#949DA8" stopOpacity="0" />
   </radialGradient>
 </defs>
 </svg>

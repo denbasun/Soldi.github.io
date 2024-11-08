@@ -1,0 +1,43 @@
+.review-card{
+    border-radius: 20px;
+    width: 288px;
+    height: 292px;
+    backdrop-filter: blur(10px);
+    background-color: #111;
+    padding: 24px;
+    margin-right: 16px;
+    .user-header{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .user-info{
+            margin-left: 16px;
+            .name{
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 150%;
+                color: #fff;
+            }
+        }
+        .user-img{
+            height: 42px;
+        }
+    }
+
+    .review-text{
+        height: 145px;
+        margin-top: 24px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 133%;
+        color: #fff;
+        overflow: hidden;
+    }
+    .card-footer{
+        margin-top: 20px;
+        font-weight: 300;
+        font-size: 9px;
+        line-height: 133%;
+        color: #949da8;
+    }
+}

@@ -1,7 +1,7 @@
 import './HowItWorksCard.scss';
-function HowItWorksCard({stepImg, stepText, stepId, stepAlt, stepKey}){
+function HowItWorksCard({stepImg, stepText, stepId, stepAlt}){
     return(
-        <div key={stepKey} id={stepId} className="grid-element" >
+        <div id={stepId} className="grid-element" >
             <div className='step'>{stepText}</div>
             <img src={stepImg} alt={stepAlt} />
         </div>

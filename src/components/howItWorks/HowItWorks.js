@@ -31,8 +31,8 @@ function HowItWorks() {
                      return(
                         <HowItWorksCard 
                             stepImg={stepImg} 
-                            stepText={stepText.split('\n').map(line => (
-                                <div>
+                            stepText={stepText.split('\n').map((line, i) => (
+                                <div key={i}>
                                     {line}
                                     <br/>
                                 </div>
@@ -40,6 +40,7 @@ function HowItWorks() {
                             stepId={`item${stepId}`} 
                             stepAlt = {stepAlt} 
                             stepKey={stepId}
+                            key={stepId}
                         />
                      )   
                 })
