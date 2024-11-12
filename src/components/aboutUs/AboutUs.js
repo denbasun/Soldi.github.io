@@ -1,10 +1,22 @@
 import aboutUsPic from '../../../src/assets/aboutUsPic.png'
 import './AboutUs.scss';
 import '../../style/style.scss';
+import { useRef, useEffect } from 'react';
+function AboutUs({setRef}) {
+    const aboutUsRef = useRef(null);
 
-function AboutUs() {
+    useEffect(()=>{
+        if(aboutUsRef.current){
+            setRef(aboutUsRef)
+        }
+        return () => {
+            aboutUsRef.current = null;// очистка рефа после размонтирования
+        };
+    },[])
+
+   
     return(
-        <section className="about-us">
+        <section ref={aboutUsRef} id={0} className="about-us">
             <div className="about-info-wrapper">
                 <a href="#" className="link-text">About Us</a>
                 

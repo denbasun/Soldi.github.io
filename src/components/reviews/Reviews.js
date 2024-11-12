@@ -7,7 +7,7 @@ import userImg4 from '../../../src/assets/users_images/user4.png';
 import './Reviews.scss';
 import '../../style/style.scss';
 import ReviewCard from '../reviewCard/ReviewCard'
-
+import { useRef, useEffect } from 'react';
 
 
 const reviewsData = [
@@ -18,10 +18,20 @@ const reviewsData = [
    
 ]
 
-function Reviews() {
+function Reviews({setRef}) {
+    const reviewsRef = useRef(null);
+
+    useEffect(()=>{
+        if(reviewsRef.current){
+            setRef(reviewsRef)
+        }
+        return () => {
+            reviewsRef.current = null;// очистка рефа после размонтирования
+        };
+    },[])
     
     return(
-        <section className="reviews">
+        <section ref={reviewsRef} id={3} className="reviews">
             <div className="review-info-wrapper">
                 <a href="#" className="link-text">Reviews</a>
                 <h2>They trust us</h2>

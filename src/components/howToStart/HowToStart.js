@@ -3,10 +3,22 @@ import domainPicture from '../../../src/assets/domain_picture.png'
 import unionCirclesPic from '../../../src/assets/Union_circles.png'
 import './HowToStart.scss';
 import '../../style/style.scss';
+import {useRef, useEffect } from 'react';
 
-function HowToStart() {
+function HowToStart({setRef}) {
+    const howToStartRef = useRef(null);
+
+    useEffect(()=>{
+        if(howToStartRef.current){
+            setRef(howToStartRef)
+        }
+        return () => {
+            howToStartRef.current = null;// очистка рефа после размонтирования
+        };
+    },[])
+
     return(
-        <section className="how-to-start">
+        <section  ref ={howToStartRef} id ={2} className="how-to-start">
             <img className="union-circles-pic" src={unionCirclesPic} alt="union circles picture" />
             <div className="how-to-start-wrapper">
                 <a href="#" className="link-text">HOW TO START</a>

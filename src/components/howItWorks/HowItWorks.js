@@ -1,3 +1,4 @@
+import { useState, useRef, useEffect } from 'react';
 import unionCirclesPic from '../../../src/assets/Union_circles.png'
 import step1 from '../../../src/assets/step1.png'
 import step2 from '../../../src/assets/step2.png'
@@ -15,10 +16,20 @@ const cardData = [
     {stepId:5, stepText:'5. Soldi sends confirmation of \n completion of transactions to you', stepImg: step5, stepAlt:'completion of transactions img'}
 ]
 
-function HowItWorks() {
-    
+function HowItWorks({setRef}) {
+    const HowItWorksRef = useRef(null);
+
+    useEffect(()=>{
+        if(HowItWorksRef.current){
+            setRef(HowItWorksRef)
+        }
+        return () => {
+            HowItWorksRef.current = null;// очистка рефа после размонтирования
+        };
+    },[])
+
     return(
-        <section className="how-it-works">
+        <section ref={HowItWorksRef} id={1} className="how-it-works">
             <img className="union-circles-pic" src={unionCirclesPic} alt="union circles picture" />
 
             <div className="how-it-works-header">

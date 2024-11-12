@@ -4,9 +4,22 @@ import '../../style/button.scss';
 import unionImage from '../../assets/Union.png'
 import telegram from '../../../src/assets/telegram.png'
 import gmail from '../../../src/assets/mail.png'
-function Contacts() {
+import { useRef, useEffect } from 'react';
+function Contacts({setRef}) {
+    
+    const contactsRef = useRef(null);
+
+    useEffect(()=>{
+        if(contactsRef.current){
+            setRef(contactsRef)
+        }
+        return () => {
+            contactsRef.current = null;// очистка рефа после размонтирования
+        };
+    },[])
+
     return (
-    <section className="contacts">
+    <section ref={contactsRef} id={5} className="contacts">
         <div className="contacts-wrapper">
 
             <div className="contact-card">
