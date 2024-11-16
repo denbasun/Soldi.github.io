@@ -11,63 +11,45 @@ import Fees from '../fees/Fees';
 import HowToStart from '../howToStart/HowToStart';
 import Contacts from '../contacts/Contacts';
 import '../../style/style.scss';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { throttle } from 'lodash';
 
 function App() {
-  const [childRef, setChildRef] = useState([]);
-  const [clickedId, setClickedId] = useState(null);
-  
-  const addRef = (ref) => {
-    setChildRef((prevRefs) => [...prevRefs, ref]);
-  };
+    console.log('Render App')
+    // const [clickedId, setClickedId] = useState(null);
+    // const [activeRef, setActiveRef] = useState(0);
 
-  useEffect(()=>{
-    
-    if(childRef){
-      childRef.forEach((item,i)=>{
-        // console.log(clickedId)
-        if(i == 4){
-          i=5;
+    const childRef = useRef([]);
+
+    // Функция получени ref
+    const addRef = (ref) => {
+        if (ref && !childRef.current.includes(ref)) {
+            childRef.current.push(ref);
         }
-        if(clickedId == i) {
-          console.log(i)
-          console.log(item)
-          const offset = 100; // Отступ для нашей фиксированного nav меню
-          const elementPosition = item.current.getBoundingClientRect().top + window.pageYOffset;
-          const offsetPosition = elementPosition - offset;
-  
-          window.scrollTo({
-              top: offsetPosition,
-              behavior: 'smooth'
-          });
-        }
-        if(clickedId == 4){
-          console.log('no ref')
-        }
-      })
-    }
+    };
+    // Функция асинхронной отправки реф
+    const getRefs = async (ref) => {
+        return new Promise((resolve) => {
+            resolve(childRef);
+        });
+    };
    
-    
-    
-  },[childRef, clickedId])
-  
-
-  return (
-    <section  className="app">
-      <Header getId={setClickedId}></Header>
-      <div className="container">
-        <img src={unionImage} alt="circles" className="container-union-circles"/>
-        <MainPage></MainPage>
-        <BinanceAdv></BinanceAdv>
-        <AboutUs setRef={addRef}></AboutUs>
-        <HowItWorks setRef={addRef}></HowItWorks>
-        <HowToStart setRef={addRef}></HowToStart>
-        <Fees></Fees>
-        <Reviews setRef={addRef}></Reviews>
-        <Contacts setRef={addRef}></Contacts>
-      </div>
-    </section>
-  );
+    return (
+        <section  className="app">
+            <Header childRefs={getRefs}></Header>
+        <div className="container">
+            <img src={unionImage} alt="circles" className="container-union-circles"/>
+            <MainPage setRef={addRef}></MainPage>
+            <BinanceAdv></BinanceAdv>
+            <AboutUs setRef={addRef}></AboutUs>
+            <HowItWorks setRef={addRef}></HowItWorks>
+            <HowToStart setRef={addRef}></HowToStart>
+            <Fees></Fees>
+            <Reviews setRef={addRef}></Reviews>
+            <Contacts setRef={addRef}></Contacts>
+        </div>
+        </section>
+    );
 }
 
 export default App;

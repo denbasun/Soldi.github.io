@@ -1,27 +1,97 @@
 import logo from '../../../src/logo_blue.png'
 import './Header.scss';
-import { useState} from 'react';
+import { useState, useEffect, memo} from 'react';
 import '../../style/style.scss';
 
 const linksData = [
-    {text: 'About us'},
-    {text: 'How It Works'},
-    {text: 'How To Start'},
-    {text: 'Reviews'},
-    {text: 'FAQ'},
-    {text: 'Contacts'}
-]
-function Header({getId}){
-    
-    const [activeIndex, setActiveIndex] = useState(null);
 
-    const handleClick = (index)=>{
-        setActiveIndex(index)
-        getId(index)
-        console.log(index)
-        
-    }
+    {id: 1, text: 'About us'},
+    {id: 2,text: 'How It Works'},
+    {id: 3,text: 'How To Start'},
+    {id: 4,text: 'Reviews'},
+    {id: 5,text: 'Contacts'},
+    {id: 6,text: 'FAQ'},
+]
+const Header = memo(({childRefs}) =>{
+    console.log('Render header ')
     
+    
+    const [clickedId, setClickedId] = useState(null);
+    const [activeRef, setActiveRef] = useState(0);
+    
+    const handleClick = (index)=>{
+        setClickedId(index);
+       
+    }
+
+    useEffect(() => {
+        
+        const loadData = async() =>{
+            const result = await childRefs()
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    // console.log(entry);
+                    if(entry.isIntersecting){
+                        // console.log(entry)
+                        setActiveRef(entry.target.id)
+                        setClickedId(null)
+                    }      
+                });
+            }, {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.9,
+            });
+
+            result.current.forEach((ref) => {
+                if (ref.current) {
+                    observer.observe(ref.current);
+                }
+            });
+
+            return () => {
+                result.current.forEach((ref) => {
+                    if (ref.current) {
+                        observer.unobserve(ref.current);
+                    }
+                });
+            };
+        }
+            
+        
+        loadData()
+        
+
+    }, []);
+    
+    useEffect(()=>{
+
+        const loadData = async() =>{
+            const result = await childRefs()
+            if(result.current){
+                result.current.forEach((item,i)=>{
+                    if(clickedId == i-1) {
+                        const offset = 100; // Отступ для нашей фиксированного nav меню
+                        const elementPosition = item.current.getBoundingClientRect().top + window.scrollY;
+                        const offsetPosition = elementPosition - offset;
+    
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+    
+                        
+                    }
+                })
+            }
+        }
+        // console.log('UseEffect2')
+        loadData()
+
+    },[clickedId])
+
+  
+
     return (
     <section className="header">
         <nav className="navbar">
@@ -30,9 +100,9 @@ function Header({getId}){
             </a>
             <ul className="nav-links">
                 {linksData.map((element, i)=>{
-                    const {ref, link, text} = element
+                    const {id, text} = element
                     return(
-                        <li  key={i}><div onClick={() => handleClick(i)} className={activeIndex === i ? "active" : ''} href={link}>{text}</div></li>
+                        <li   key={i}><div onClick={() => handleClick(i)} className={activeRef == id ? "active" : ''}>{text}</div></li>
                     )
                 })}
             </ul>
@@ -49,7 +119,7 @@ function Header({getId}){
         <hr/>
     </section>
     );
-  }
+  })
   
   export default Header;
   

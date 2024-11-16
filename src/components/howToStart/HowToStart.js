@@ -18,7 +18,7 @@ function HowToStart({setRef}) {
     },[])
 
     return(
-        <section  ref ={howToStartRef} id ={2} className="how-to-start">
+        <section  ref ={howToStartRef} id={3} className="how-to-start">
             <img className="union-circles-pic" src={unionCirclesPic} alt="union circles picture" />
             <div className="how-to-start-wrapper">
                 <a href="#" className="link-text">HOW TO START</a>

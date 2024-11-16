@@ -16,7 +16,7 @@ function AboutUs({setRef}) {
 
    
     return(
-        <section ref={aboutUsRef} id={0} className="about-us">
+        <section ref={aboutUsRef} id={1}className="about-us">
             <div className="about-info-wrapper">
                 <a href="#" className="link-text">About Us</a>
                 

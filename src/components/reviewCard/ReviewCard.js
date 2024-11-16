@@ -1,5 +1,6 @@
 import star from '../../../src/assets/star.svg'
 import './ReviewCard.scss'
+
 function ReviewCard(props){
     const {userImg, userName ,userText, userMark, userPayment, data} = props;
     let starArr = []

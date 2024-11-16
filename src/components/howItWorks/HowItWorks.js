@@ -29,7 +29,7 @@ function HowItWorks({setRef}) {
     },[])
 
     return(
-        <section ref={HowItWorksRef} id={1} className="how-it-works">
+        <section ref={HowItWorksRef} id={2} className="how-it-works">
             <img className="union-circles-pic" src={unionCirclesPic} alt="union circles picture" />
 
             <div className="how-it-works-header">

@@ -31,7 +31,7 @@ function Reviews({setRef}) {
     },[])
     
     return(
-        <section ref={reviewsRef} id={3} className="reviews">
+        <section ref={reviewsRef} id={4} className="reviews">
             <div className="review-info-wrapper">
                 <a href="#" className="link-text">Reviews</a>
                 <h2>They trust us</h2>

@@ -9,6 +9,7 @@
     backdrop-filter: blur(10px);
     width: 100%;
     .navbar{
+        user-select: none; 
         display: flex;
         justify-content: space-between;
         width: 1200px;
@@ -31,15 +32,14 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                div{  
+                div{ 
                     font-weight: 400;
                     font-size: 14px;
                     line-height: 143%;
                     color: #949da8;
                     text-transform: uppercase;
                     text-decoration: none;
-                    cursor: pointer
-                    
+                    cursor: pointer;
                 }
                 .active{
                     color: #3a86ff;
@@ -66,20 +66,10 @@
                 color: white;
                 padding: 10px;
                 border-radius: 10px;
-                // .dropdown-menu{
-                //     display: none;
-                //     // background-color: rgba(27, 27, 27, 0.1);
-                //     // border: none;
-                //     // .option {
-                //     //     background-color: rgba(27, 27, 27, 0.1);
-                //     //     cursor: pointer;
-                //     // }
-                // }
                 option{
-                    
                     font-weight: 600;
                     background-color: rgba(27, 27, 27);
-                    // backdrop-filter: blur(10px);
+                    
                 }
                 
             }
