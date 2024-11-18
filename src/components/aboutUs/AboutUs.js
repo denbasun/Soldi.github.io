@@ -18,7 +18,7 @@ function AboutUs({setRef}) {
     return(
         <section ref={aboutUsRef} id={1}className="about-us">
             <div className="about-info-wrapper">
-                <a href="#" className="link-text">About Us</a>
+                <div className="blue-text">About Us</div>
                 
                 <h2>Your payment solution</h2>
                 <div className="about-descr">SOLDY is a payment solution that allows you to accept fiat from clients and receive crypto into your account.<br></br>

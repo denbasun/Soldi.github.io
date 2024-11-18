@@ -6,10 +6,14 @@
     }
     &-slider{
         .reviews-card-wrapper{
-            margin: 36px 104px 32px 120px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
+                margin: 36px 104px 32px 120px;
+                overflow: hidden;
+            .slider-wrapper{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                transition: '0,5s all';
+            }
         }
         .dots{
             // margin-top: 32px;

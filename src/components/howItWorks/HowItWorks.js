@@ -33,7 +33,7 @@ function HowItWorks({setRef}) {
             <img className="union-circles-pic" src={unionCirclesPic} alt="union circles picture" />
 
             <div className="how-it-works-header">
-                <a href="#" className="link-text">HOW IT WORKS</a>  
+                <div  className="blue-text">HOW IT WORKS</div>  
                 <h2>Just 5 steps to get your money</h2>
             </div>
             <div className="grid-wrapper">
