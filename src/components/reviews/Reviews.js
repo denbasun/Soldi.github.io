@@ -26,23 +26,22 @@ const reviewsData = [
     {img: userImg6, name: 'Emily Stone', text:'I’ve been using Solidi 3 for some time now, and it’s great for managing personal and business payments. The platform is secure and straightforward. The occasional minor delay is the only downside, but overall, it’s excellent.', mark: 4, PaymentMethod: "MasterCard", data: 'January 12, 2023'},
     {img: userImg7, name: 'Sophia White', text:'Using Solidi 3 has been an amazing experience. The payment system is quick, reliable, and very secure. I’ve recommended it to all my colleagues. Definitely a must-try for anyone looking for efficiency!', mark: 5, PaymentMethod: "Visa", data: 'May 3, 2024'},
     {img: userImg8, name: ' Green', text:'Solidi 3 is very user-friendly, and the speed of transactions is impressive. I use it daily for my business, and it has never let me down. Great service and excellent support team.', mark: 5, PaymentMethod: "Apple Pay", data: 'October 8, 2024'},
-    {img: userImg9, name: 'Olivia Brown', text:'I like Solidi 3 because it’s very intuitive and handles payments securely. It’s a bit pricey compared to other options, but the reliability and speed make up for it. Worth every penny.', mark: 5, PaymentMethod: "PayPal", data: 'November 2, 2023'}
+    {img: userImg9, name: 'Olivia Brown', text:'I like Solidi 3 because it’s very intuitive and handles payments securely. It’s a bit pricey compared to other options, but the reliability and speed make up for it. Worth every penny.', mark: 5, PaymentMethod: "PayPal", data: 'November 2, 2023'},
     
 ]
 
-
-
 function Reviews({setRef}) {
+    console.log('Review render')
     const reviewsRef = useRef(null);
     const sliderRef = useRef(null);
     const [SliderWidth, setSliderWidth] = useState(0);
-    const slideWidth = Math.round(SliderWidth/4)
-    console.log(slideWidth)
-    const fieldWidth = (100 * reviewsData.length)/4 +"%"; 
     const [offset, setOffset] = useState(0)
+    const [clickedDotId, setClickedDotId] = useState(0)
+    const slideCardWidth = Math.round(SliderWidth/4)
+    const fieldWidth = (100 * reviewsData.length)/4 +"%"; 
+    const activeSlideQuantity = Math.floor(((reviewsData.length)/4))
 
     useEffect(()=>{
-        console.log(SliderWidth)
         if (sliderRef.current) {
             setSliderWidth(sliderRef.current.getBoundingClientRect().width);
           }
@@ -50,21 +49,33 @@ function Reviews({setRef}) {
             setRef(reviewsRef)
         }
        
+        if(clickedDotId == 0){
+            setOffset(0)
+        }else{
+            setOffset(-SliderWidth*clickedDotId)
+        }
+
         return () => {
             reviewsRef.current = null;// очистка рефа после размонтирования
         };
         
-    },[SliderWidth])
+    },[clickedDotId])
 
-    function handleSetOffset(){
-       
-        if(offset == -slideWidth * (reviewsData.length -4)){
-            setOffset(0)
-        }else{
-            setOffset((offset) =>-slideWidth + offset)
+    function handleSetOffset(e){
+        if(clickedDotId !== e.target.id){
+            setClickedDotId(e.target.id)
         }
         
     }
+    
+    const dotsArr = []
+    function getDots(){
+        for(let i = 0; i < activeSlideQuantity+1; i++ ){
+            dotsArr.push(<div onClick={(e)=>handleSetOffset(e)} id= {i} key={i} className={clickedDotId == i ? "dot active" : 'dot'}></div>) 
+        }
+    }
+    getDots()
+   
     
     return(
         <section ref={reviewsRef} id={4} className="reviews">
@@ -80,20 +91,15 @@ function Reviews({setRef}) {
                             
                             const {img, text, mark, PaymentMethod, data, name}=card
                             return(
-                                <ReviewCard slideWidth={slideWidth} key = {i} userName={name} userImg={img} userText={text} userMark={mark} userPayment={PaymentMethod} data={data}/>
+                                <ReviewCard slideWidth={slideCardWidth} key = {i} userName={name} userImg={img} userText={text} userMark={mark} userPayment={PaymentMethod} data={data}/>
                             )
                         })
                         }
                     </div>
                 
                 </div>
-                <div onClick={()=>handleSetOffset()} className="dots">
-                        <div className="dot active"></div>
-                        <div className="dot"></div>
-                        <div className="dot"></div>
-                        <div className="dot"></div>
-                        
-                        
+                <div className="dots">
+                        {dotsArr}
                 </div>
             </div>
         </section>

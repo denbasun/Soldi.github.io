@@ -28,6 +28,8 @@
                 height: 8px;
                 margin-right: 8px;
                 background-color: #fff;
+                user-select: none;
+                cursor: pointer;
             }
             .active{
                 border-radius: 5px;
