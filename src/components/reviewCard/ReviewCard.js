@@ -1,7 +1,7 @@
 import star from '../../../src/assets/star.svg'
 import './ReviewCard.scss'
-
-function ReviewCard(props){
+import {memo} from 'react';
+const ReviewCard = memo((props) =>{
     const {userImg, userName ,userText, userMark, userPayment, data, slideWidth} = props;
     let starArr = []
     for(let i = 0; i<userMark; i++){
@@ -31,6 +31,6 @@ function ReviewCard(props){
         </div>
     </div>
     )
-}
+})
 
 export default ReviewCard ;  

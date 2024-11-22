@@ -10,6 +10,7 @@ import Reviews from '../reviews/Reviews';
 import Fees from '../fees/Fees';
 import HowToStart from '../howToStart/HowToStart';
 import Contacts from '../contacts/Contacts';
+import Modal from '../modal/Modal'
 import '../../style/style.scss';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { throttle } from 'lodash';
@@ -37,6 +38,7 @@ function App() {
     return (
         <section  className="app">
             <Header childRefs={getRefs}></Header>
+            {/* <Modal/> */}
         <div className="container">
             <img src={unionImage} alt="circles" className="container-union-circles"/>
             <MainPage setRef={addRef}></MainPage>

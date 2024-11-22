@@ -15,7 +15,6 @@ const linksData = [
 const Header = memo(({childRefs}) =>{
     console.log('Render header ')
     
-    
     const [clickedId, setClickedId] = useState(null);
     const [activeRef, setActiveRef] = useState(0);
     
