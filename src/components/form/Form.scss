@@ -4,7 +4,7 @@
     }
     border-radius: 20px;
     width: 592px;
-    height: 482px;
+    min-height: 482px;
     background-color: #111;
     padding: 36px 48px 48px 36px;
     .contact-form{
@@ -28,7 +28,12 @@
                 span{
                     color: #f05773;
                 }
+                pointer-events: none;
             }
+            
+        }
+        .error{
+            color: red;
         }
         
     }
