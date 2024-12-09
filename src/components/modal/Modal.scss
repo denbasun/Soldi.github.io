@@ -16,9 +16,10 @@
         left: 50%;
         transform: translate(-50%, -50%);
         &-close{
+            top: -10px;
             position: absolute;
             color: white;
-            right: 20px;
+            right: 10px;
             font-size: 50px;
             cursor: pointer;
             &:hover{

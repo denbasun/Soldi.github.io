@@ -1,8 +1,8 @@
-import { memo, useState, useCallback} from 'react';
+import { memo, useState, useCallback, useEffect} from 'react';
 import emailjs from '@emailjs/browser';
-
+import FormDone from '../formDone/FormDone';
 import './Form.scss';
-const Form = memo(() =>{
+const Form = memo(({clickClose, handleClick}) =>{
     console.log('Form render')
     const [formData, setFormData] = useState({
         userName: '',
@@ -11,7 +11,13 @@ const Form = memo(() =>{
     });
     
     const [formError, setFormError] = useState({})
+    const [dataSended, setDataSended] = useState(false)
 
+
+    // const sendDataToParent = (dataSended) => {
+    //     onSendData(dataSended);
+    // };
+    
     // метод используя emailjs
     // const sendEmail = (e) =>{
     //     e.preventDefault();
@@ -65,13 +71,37 @@ const Form = memo(() =>{
         
     },[])
 
+    useEffect(()=>{
+        if(clickClose){
+            setDataSended(false)
+        }
+    },[clickClose])
+
+    useEffect(() => {
+        let timeout;
+        if (dataSended) {
+            timeout = setTimeout(() => {
+                setDataSended(false);
+                if(handleClick){
+                    handleClick()
+                }
+                
+                // if(!isOpen){
+                    
+                // }
+            }, 3000);
+        }
+        return () => clearTimeout(timeout); // Очистка таймаута
+    }, [dataSended]);
+     
+
     const sendEmail = (e)=>{
         e.preventDefault()
 
         const errors = validateForm()
         setFormError(errors)
-
-        if(Object.values(errors).length <1){
+        
+        if(Object.values(errors).length === 0){
             const templateParams = {
                 user_name: formData.userName, // Ваше имя
                 user_email: formData.userEmail, // Ваш email
@@ -92,6 +122,8 @@ const Form = memo(() =>{
                
             }).then(res => {
                 console.log('Your mail is sent!');
+                setDataSended(true)
+                
             }).catch(res => {
                 console.log('Oops... ' + JSON.stringify(res));
             }).finally(res =>{
@@ -100,35 +132,45 @@ const Form = memo(() =>{
                     userEmail: '',
                     userMessage: '',
                 })
-                
+
             })
         }
         
     }
     return (
-        <div  className="form-card">
-                <h2>Contact us</h2>
-                <form  onSubmit={(e) => sendEmail(e)} className={"contact-form"}>
-                    <div className="form-group">
-                        <label htmlFor="name">Your name</label>
-                        <input onChange={(e) =>onInputChange(e)}  value={formData.userName} type="text" id="name" name="userName"  placeholder="John Smith"/>
-                    </div>
-                    {formError ? <div className='error'>{formError.userName}</div> : null}
-                    <div className="form-group">
-                        <label htmlFor="email">Your email <span>*</span></label>
-                        <input onChange={(e) =>onInputChange(e)}  value={formData.userEmail} type="email" id="email" name="userEmail"  placeholder="example@gmail.com"/>
-                    </div>
-                    {formError ? <div className='error'>{formError.userEmail}</div> : null}
-                    <div className="form-group">
-                        <label htmlFor="message">Message</label>
-                        <input onChange={(e) =>onInputChange(e)}  value={formData.userMessage}  type="message" id="message" name="userMessage" placeholder="Write here your message."/>
-                    </div>
-                    {formError ? <div className='error'>{formError.userMessage}</div> : null}
-                    <button type="submit" value="Send" className="button button-submit">Send</button>
+        <>
+            { !dataSended ? 
+                <div  className="form-card">
+                    <h2>Contact us</h2>
+                    <form  onSubmit={(e) => sendEmail(e)} className={"contact-form"}>
+                        <div className="form-group">
+                            <label htmlFor="name">Your name</label>
+                            <input onChange={(e) =>onInputChange(e)}  value={formData.userName} type="text" id="name" name="userName"  placeholder="John Smith"/>
+                            {<div className='error'>{formError ? formError.userName : null}</div>}
+                        </div>
+                        
+                        <div className="form-group">
+                            <label htmlFor="email">Your email <span>*</span></label>
+                            <input onChange={(e) =>onInputChange(e)}  value={formData.userEmail} type="email" id="email" name="userEmail"  placeholder="example@gmail.com"/>
+                            {<div className='error'>{formError ? formError.userEmail : null}</div>}
+                        </div>
+                        
+                        <div className="form-group">
+                            <label htmlFor="message">Message</label>
+                            <input onChange={(e) =>onInputChange(e)}  value={formData.userMessage}  type="message" id="message" name="userMessage" placeholder="Write here your message."/>
+                            {<div className='error'>{formError ? formError.userMessage : null}</div>}
+                        </div>
+                        
+                        <button type="submit" value="Send" className="button button-submit">Send</button>
+                        
+                    </form>
                     
-                </form>
-            </div>
-
+                </div>
+                :<FormDone></FormDone>
+            }
+        </>
+        
+        
     )
 })
 
