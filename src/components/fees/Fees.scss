@@ -1,6 +1,13 @@
 .fees{
+    position: relative;
     min-height: 360px;
     padding-top: 78px;
+    .union-circles-pic{
+        position: absolute;
+        left: -40px;
+        bottom: -120px;
+        z-index: -1;
+    }
     .fees-card{
         margin: 0 auto;
         display: block;

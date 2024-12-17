@@ -1,11 +1,11 @@
 import logo from '../../../src/logo_blue.png'
 import './Header.scss';
-import { useState, useEffect, memo} from 'react';
+import { useState, useEffect, memo, useCallback} from 'react';
 import '../../style/style.scss';
+import {Link} from 'react-router-dom'
 
 const linksData = [
-
-    {id: 1, text: 'About us'},
+    {id: 1,text: 'About us'},
     {id: 2,text: 'How It Works'},
     {id: 3,text: 'How To Start'},
     {id: 4,text: 'Reviews'},
@@ -17,23 +17,28 @@ const Header = memo(({childRefs}) =>{
     
     const [clickedId, setClickedId] = useState(null);
     const [activeRef, setActiveRef] = useState(0);
-    
-    const handleClick = (index)=>{
+
+    const handleClick = useCallback((index, offset) => {
         setClickedId(index);
-       
-    }
+        window.scrollTo({
+          top: offset,
+          behavior: 'smooth',
+        });
+      }, []);
 
     useEffect(() => {
         
         const loadData = async() =>{
+            
             const result = await childRefs()
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
-                    // console.log(entry);
+                   
                     if(entry.isIntersecting){
-                        // console.log(entry)
+                        
                         setActiveRef(entry.target.id)
-                        setClickedId(null)
+                       
                     }      
                 });
             }, {
@@ -42,66 +47,53 @@ const Header = memo(({childRefs}) =>{
                 threshold: 0.9,
             });
 
-            result.current.forEach((ref) => {
-                if (ref.current) {
-                    observer.observe(ref.current);
-                }
-            });
-
-            return () => {
-                result.current.forEach((ref) => {
-                    if (ref.current) {
-                        observer.unobserve(ref.current);
-                    }
-                });
-            };
-        }
-            
-        
-        loadData()
-        
-
-    }, []);
-    
-    useEffect(()=>{
-
-        const loadData = async() =>{
-            const result = await childRefs()
-            if(result.current){
-                result.current.forEach((item,i)=>{
-                    if(clickedId == i-1) {
+            result.forEach((item, i) => {
+                if(clickedId == i-1) {
+                    
+                    if(item.current){
+                       
                         const offset = 100; // Отступ для нашей фиксированного nav меню
                         const elementPosition = item.current.getBoundingClientRect().top + window.scrollY;
                         const offsetPosition = elementPosition - offset;
     
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-    
-                        
+                        handleClick(clickedId, offsetPosition)
                     }
-                })
-            }
+                }
+                if(clickedId == 5){
+                    setActiveRef(6)
+                    handleClick(clickedId, 0)
+                    
+                }
+                if (item.current) {
+                    observer.observe(item.current);
+                }
+            });
+
+            return () => {
+                result.forEach((ref) => {
+                    if (ref.current) {
+                        observer.unobserve(ref.current);
+                    }
+                });
+                
+            };
         }
-        // console.log('UseEffect2')
+            
         loadData()
-
-    },[clickedId])
-
-  
+        
+    }, [clickedId, childRefs]);
 
     return (
     <section className="header">
         <nav className="navbar">
-            <a href="#" className="logo-wrapper">
+            <Link onClick={()=>handleClick(-1)} to='/' className="logo-wrapper">
                 <img src={logo} alt="logo" ></img>
-            </a>
+            </Link >
             <ul className="nav-links">
                 {linksData.map((element, i)=>{
                     const {id, text} = element
                     return(
-                        <li   key={i}><div onClick={() => handleClick(i)} className={activeRef == id ? "active" : ''}>{text}</div></li>
+                        <li  key={id}><Link to={i === 5 ? "/help" : '/'} onClick={() => handleClick(i)} className={activeRef == id ? "active" : ''}>{text}</Link></li>
                     )
                 })}
             </ul>

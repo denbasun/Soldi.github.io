@@ -12,7 +12,10 @@ function Contacts({setRef}) {
 
     useEffect(()=>{
         if(contactsRef.current){
-            setRef(contactsRef)
+            if(setRef){
+                setRef(contactsRef)
+            }
+            
         }
         return () => {
             contactsRef.current = null;// очистка рефа после размонтирования

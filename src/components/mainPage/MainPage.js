@@ -9,39 +9,40 @@ function MainPage({setRef}) {
 	console.log('MainPage render')
 	const [modalOpen, setModalOpen] = useState(false)
 	const  mainPageRef = useRef(null);
-	
-    useEffect(()=>{
-        if(mainPageRef.current){
-            setRef(mainPageRef)
-        }
-		
-        return () => {
-            mainPageRef.current = null;// очистка рефа после размонтирования
-        };
-		
-    },[])
 
-	const handleClick = (e)=>{
+	useEffect(() => {
+		if (mainPageRef.current) {
+			setRef(mainPageRef);
+		}
+
+		return () => {
+            mainPageRef.current = null;// очистка рефа после размонтирования
+		}	
+	}, []);
+
+	const toggleModal = useCallback(() => {
 		const scrollWidth = window.innerWidth - document.documentElement.clientWidth;
-		setModalOpen((onClick) => !onClick)
-		if (modalOpen) {  
-            document.body.style.overflow = '';
+	
+		if (modalOpen) {
+			document.body.style.overflow = '';
 			document.body.style.paddingRight = '0';
-        } else {
-			document.body.style.overflow = 'hidden'; 
+		} else {
+			document.body.style.overflow = 'hidden';
 			document.body.style.paddingRight = `${scrollWidth}px`;
-        }
-	}
+		}
+	
+		setModalOpen(!modalOpen);
+	}, [modalOpen]);
 
 	return (
 		<section ref={ mainPageRef} id={0} className="main-page">
 			<div className="main-page-wrapper">
 			<h1>Your payment solution</h1>
-			<button onClick={(e)=>handleClick(e)} className="button">Contact sales</button>
+			<button onClick={(e)=>toggleModal(e)} className="button">Contact sales</button>
 			</div>
 			<img src={iphoneImg} alt="Iphone img" />
 			<Portal>
-				<Modal isOpen={modalOpen} handleClick = {handleClick}></Modal>
+				<Modal isOpen={modalOpen} handleClick = {toggleModal}></Modal>
 			</Portal>
 		</section>
 

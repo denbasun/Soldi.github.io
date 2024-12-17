@@ -1,0 +1,39 @@
+.faq{
+    padding-top: 184px;
+    // min-height: 184px;
+    position: relative;
+    .union-circles-pic{
+        position: absolute;
+        rotate: 25deg;
+        height: 620px;
+        z-index: -1;
+        top: 115px;
+        left: -95px;
+    }
+    &-wrapper{
+        text-align: center;
+        
+    }
+    &-descr{
+        margin-top: 16px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 143%;
+        text-align: center;
+        color: #fff;
+        
+    }
+    .accordion{
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        
+       
+    }
+    .stillQuestion{
+        margin-top: 82px;
+        text-align: center;
+    }
+}

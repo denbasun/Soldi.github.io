@@ -1,17 +1,11 @@
 .how-to-start{
-    position: relative;
+
     min-height: 590px;
     padding-top: 130px;
     .how-to-start-wrapper{
         margin-left: 120px;
     }
-    .union-circles-pic{
-        position: absolute;
-        rotate: -25deg;
-        left: -425px;
-        bottom: 360px;
-        z-index: -1;
-    }
+
     .how-to-start-card-wrapper{
         margin-left: 120px;
         display: flex;

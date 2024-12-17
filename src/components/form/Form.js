@@ -1,8 +1,7 @@
 import { memo, useState, useCallback, useEffect} from 'react';
-import emailjs from '@emailjs/browser';
 import FormDone from '../formDone/FormDone';
 import './Form.scss';
-const Form = memo(({clickClose, handleClick}) =>{
+const Form = memo(({isOpen, handleClick}) =>{
     console.log('Form render')
     const [formData, setFormData] = useState({
         userName: '',
@@ -11,41 +10,15 @@ const Form = memo(({clickClose, handleClick}) =>{
     });
     
     const [formError, setFormError] = useState({})
-    const [dataSended, setDataSended] = useState(false)
+    const [formDone, setFormDone] = useState(false)
+    const [resOK, setResOk] = useState(false)
 
-
-    // const sendDataToParent = (dataSended) => {
-    //     onSendData(dataSended);
-    // };
-    
-    // метод используя emailjs
-    // const sendEmail = (e) =>{
-    //     e.preventDefault();
-
-    //     emailjs
-    //         .sendForm('contact_service', 'contact_form', form.current, {
-    //             publicKey: 'A91Xp8zdt-4G85g_g',
-    //         })
-    //         .then(
-    //             ()=>{
-    //                 console.log('SUCCESS!');
-    //                 form.current.reset()
-    //             },
-    //             (error) =>{
-    //                 console.log("Something went wrong", error.text);
-    //                 form.current.reset()
-    //             },
-    //         );
-
-    // };
-
-//  метод Rest Api без использования SDK emailjs
-    const isEmailValid = (email) => {
+    const isEmailValid = useCallback((email) => {
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         return emailPattern.test(email);
-    };
+    },[]);
 
-    const validateForm =() =>{
+    const validateForm = useCallback(() =>{
         let error = {}
         if(formData.userName.length < 2){
             error.userName = 'Name must be at least 2 characters long.'
@@ -58,7 +31,7 @@ const Form = memo(({clickClose, handleClick}) =>{
         }
 
         return error
-    }
+    },[formData, isEmailValid])
 
     const onInputChange = useCallback((e)=>{
         
@@ -72,27 +45,32 @@ const Form = memo(({clickClose, handleClick}) =>{
     },[])
 
     useEffect(()=>{
-        if(clickClose){
-            setDataSended(false)
+        if(isOpen){
+            setFormDone(false)
         }
-    },[clickClose])
+    },[isOpen])
 
     useEffect(() => {
         let timeout;
-        if (dataSended) {
+        if (formDone) {
             timeout = setTimeout(() => {
-                setDataSended(false);
+                setFormDone(false);
                 if(handleClick){
                     handleClick()
                 }
-                
-                // if(!isOpen){
-                    
-                // }
+
             }, 3000);
         }
         return () => clearTimeout(timeout); // Очистка таймаута
-    }, [dataSended]);
+    }, [formDone]);
+
+    const resetForm = () => {
+        setFormData({
+          userName: '',
+          userEmail: '',
+          userMessage: '',
+        });
+      };
      
 
     const sendEmail = (e)=>{
@@ -102,11 +80,6 @@ const Form = memo(({clickClose, handleClick}) =>{
         setFormError(errors)
         
         if(Object.values(errors).length === 0){
-            const templateParams = {
-                user_name: formData.userName, // Ваше имя
-                user_email: formData.userEmail, // Ваш email
-                message: formData.userMessage,
-            };
     
             fetch('https://api.emailjs.com/api/v1.0/email/send', {
                 method: 'POST',
@@ -117,29 +90,36 @@ const Form = memo(({clickClose, handleClick}) =>{
                     service_id: 'contact_service',
                     template_id: 'contact_form',
                     user_id: 'A91Xp8zdt-4G85g_g',
-                    template_params: templateParams,
+                    template_params: {
+                        user_name: formData.userName, 
+                        user_email: formData.userEmail, 
+                        message: formData.userMessage,
+                    },
                 }),
                
             }).then(res => {
-                console.log('Your mail is sent!');
-                setDataSended(true)
-                
+                    setFormDone(true)
+                if(res.ok){
+                    console.log('Email sent!');
+                    setResOk(true)
+                }else{
+                    console.log('Server error during email sending');
+                    setResOk(false)
+                }
+               
             }).catch(res => {
-                console.log('Oops... ' + JSON.stringify(res));
+                console.log('Unexpected error:', res);
+                setResOk(false)
+                setFormDone(true)
             }).finally(res =>{
-                setFormData({
-                    userName: '',
-                    userEmail: '',
-                    userMessage: '',
-                })
-
+                resetForm()
             })
         }
         
     }
     return (
         <>
-            { !dataSended ? 
+            { !formDone ? 
                 <div  className="form-card">
                     <h2>Contact us</h2>
                     <form  onSubmit={(e) => sendEmail(e)} className={"contact-form"}>
@@ -166,7 +146,7 @@ const Form = memo(({clickClose, handleClick}) =>{
                     </form>
                     
                 </div>
-                :<FormDone></FormDone>
+                :<FormDone resOK={resOK}></FormDone>
             }
         </>
         

@@ -1,4 +1,5 @@
 import './Fees.scss';
+import unionCirclesPic from '../../../src/assets/Union_circles_2.png'
 const svgLine = <svg width="2" height="110" viewBox="0 0 2 110" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path opacity="0.8" d="M1 1L1 109" stroke="url(#paint0_radial_0_1168)" strokeLinecap="round" />
 <defs>
@@ -12,6 +13,7 @@ const svgLine = <svg width="2" height="110" viewBox="0 0 2 110" fill="none" xmln
 function Fees() {
     return (
       <section className="fees">
+          <img className="union-circles-pic" src={unionCirclesPic} alt="union circles picture" />
           <div className="fees-card">
                 <div className="visa-mastercard">
                     <div className="percentage">7%</div>

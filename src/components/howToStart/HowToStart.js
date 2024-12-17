@@ -1,6 +1,5 @@
 import scanPicture from '../../../src/assets/scan_picture.png'
 import domainPicture from '../../../src/assets/domain_picture.png'
-import unionCirclesPic from '../../../src/assets/Union_circles.png'
 import './HowToStart.scss';
 import '../../style/style.scss';
 import {useRef, useEffect } from 'react';
@@ -19,7 +18,7 @@ function HowToStart({setRef}) {
 
     return(
         <section  ref ={howToStartRef} id={3} className="how-to-start">
-            <img className="union-circles-pic" src={unionCirclesPic} alt="union circles picture" />
+          
             <div className="how-to-start-wrapper">
                 <div className="blue-text">HOW TO START</div>
                 <h2>To start work with us we need</h2>

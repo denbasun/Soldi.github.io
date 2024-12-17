@@ -1,0 +1,40 @@
+.faq{
+    &-card{
+        padding: 16px 24px;
+        margin-top: 16px;
+        background-color: #111;
+        border-radius: 10px;
+        width: 898px;
+        height: 56px;
+        overflow: hidden;
+        cursor: pointer;
+        &-wrapper{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &-header{
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 150%;
+            color: #fff;
+            
+           
+        }
+       
+        &-descr{
+            margin-top: 16px;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 143%;
+            color: #949da8;
+        }
+        
+    }
+    .active{
+        height: 100%;
+    }
+    .activeHeader{
+        color: #3a86ff;
+    }
+}

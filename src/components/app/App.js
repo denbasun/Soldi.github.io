@@ -1,56 +1,42 @@
 // import logo from './logo.svg';
 import './App.scss';
-import MainPage from '../mainPage/MainPage';
-import unionImage from '../../assets/Union.png'
 import Header from '../header/Header';
-import BinanceAdv from '../binanceAdv/BinanceAdv';
-import AboutUs from '../aboutUs/AboutUs';
-import HowItWorks from '../howItWorks/HowItWorks';
-import Reviews from '../reviews/Reviews';
-import Fees from '../fees/Fees';
-import HowToStart from '../howToStart/HowToStart';
-import Contacts from '../contacts/Contacts';
-import Modal from '../modal/Modal'
+import MainRouterPage from '../pages/MainRouterPage';
+import HelpRouterPage from '../pages/HelpRouterPage';
 import '../../style/style.scss';
-import { useState, useRef, useEffect, useCallback } from 'react';
-import { throttle } from 'lodash';
+import {useState} from 'react';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+
 
 function App() {
     console.log('Render App')
-    // const [clickedId, setClickedId] = useState(null);
-    // const [activeRef, setActiveRef] = useState(0);
 
-    const childRef = useRef([]);
+    const [refArr, setRefArr] = useState([])
 
-    // Функция получени ref
-    const addRef = (ref) => {
-        if (ref && !childRef.current.includes(ref)) {
-            childRef.current.push(ref);
-        }
-    };
-    // Функция асинхронной отправки реф
-    const getRefs = async (ref) => {
+    const getRefArr = (arr) =>{   
+        setRefArr(arr)
+    }
+
+    const getRefs = async () => {
         return new Promise((resolve) => {
-            resolve(childRef);
+            resolve(refArr);
         });
     };
    
     return (
-        <section  className="app">
-            <Header childRefs={getRefs}></Header>
-            {/* <Modal/> */}
-        <div className="container">
-            <img src={unionImage} alt="circles" className="container-union-circles"/>
-            <MainPage setRef={addRef}></MainPage>
-            <BinanceAdv></BinanceAdv>
-            <AboutUs setRef={addRef}></AboutUs>
-            <HowItWorks setRef={addRef}></HowItWorks>
-            <HowToStart setRef={addRef}></HowToStart>
-            <Fees></Fees>
-            <Reviews setRef={addRef}></Reviews>
-            <Contacts setRef={addRef}></Contacts>
-        </div>
-        </section>
+        <Router>
+            <section  className="app">
+                <Header childRefs={getRefs}></Header>
+                <main>
+                    <div className="container">
+                        <Routes>
+                            <Route  path = '/' element={<MainRouterPage getRefArr={getRefArr}></MainRouterPage>}/>
+                            <Route  path = '/help' element={<HelpRouterPage></HelpRouterPage>}/>
+                        </Routes>
+                    </div>
+                </main>
+            </section>
+        </Router>
     );
 }
 
