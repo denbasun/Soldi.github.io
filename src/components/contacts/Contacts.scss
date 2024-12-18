@@ -16,12 +16,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 1200px;
+        max-width: 1200px;
         margin: 0 auto;
         .contact-card{
             position: relative;
             border-radius: 20px;
-            width: 592px;
+            width: 49%;
             height: 482px;
             background-color: #111;
             overflow: hidden;

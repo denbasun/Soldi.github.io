@@ -6,7 +6,7 @@
     .union-circles-pic{
         margin-top: 34px;
         position: absolute;
-        margin-left: 707px;
+        margin-left: 47%;
         height: 670px;
         z-index: -1;
     }
@@ -24,5 +24,13 @@
         grid-auto-flow: dense;
         
        
+    }
+}
+
+@media (max-width: 1400px) {
+    .how-it-works{
+        .union-circles-pic{
+            margin-left: 40%;
+        }
     }
 }

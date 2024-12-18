@@ -2,7 +2,9 @@ import aboutUsPic from '../../../src/assets/aboutUsPic.png'
 import './AboutUs.scss';
 import '../../style/style.scss';
 import { useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next'
 function AboutUs({setRef}) {
+    const { t } = useTranslation()
     const aboutUsRef = useRef(null);
 
     useEffect(()=>{
@@ -18,13 +20,12 @@ function AboutUs({setRef}) {
     return(
         <section ref={aboutUsRef} id={1}className="about-us">
             <div className="about-info-wrapper">
-                <div className="blue-text">About Us</div>
+                <div className="blue-text">{t('aboutUs.sectionTitle')}</div>
                 
-                <h2>Your payment solution</h2>
-                <div className="about-descr">SOLDY is a payment solution that allows you to accept fiat from clients and receive crypto into your account.<br></br>
+                <h2>{t('aboutUs.header-h2')}</h2>
+                <div className="about-descr">{t('aboutUs.description_pt1')}<br></br>
                 <br></br>
-                We bring together a large number of partners, which allows us to ensure a variety of payment pairs,
-                the availability of liquidity, and the diversification of risks.</div>
+                {t('aboutUs.description_pt2')}</div>
             </div>
             <img className="about-us-pic" src={aboutUsPic} alt="about us picture" />
         </section>

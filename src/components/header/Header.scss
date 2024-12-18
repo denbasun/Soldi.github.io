@@ -7,12 +7,12 @@
     z-index: 10;
     background-color: rgba(27, 27, 27, 0.1);
     backdrop-filter: blur(10px);
-    width: 100%;
+    width: 1200px;
     .navbar{
         user-select: none; 
         display: flex;
         justify-content: space-between;
-        width: 1200px;
+        width: 100%;
         margin: 0 auto;
         .logo-wrapper{
             width: 82px;
@@ -77,4 +77,10 @@
         }
     }
    
+}
+
+@media (max-width: 1400px) {
+    .header{
+        margin: 0 20px 0 20px;
+    }
 }

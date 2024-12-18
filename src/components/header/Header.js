@@ -3,6 +3,7 @@ import './Header.scss';
 import { useState, useEffect, memo, useCallback} from 'react';
 import '../../style/style.scss';
 import {Link} from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const linksData = [
     {id: 1,text: 'About us'},
@@ -17,6 +18,11 @@ const Header = memo(({childRefs}) =>{
     
     const [clickedId, setClickedId] = useState(null);
     const [activeRef, setActiveRef] = useState(0);
+    const { t, i18n } = useTranslation();
+
+    const changeLanguage = (lng) => {
+      i18n.changeLanguage(lng);
+    };
 
     const handleClick = useCallback((index, offset) => {
         setClickedId(index);
@@ -83,6 +89,8 @@ const Header = memo(({childRefs}) =>{
         
     }, [clickedId, childRefs]);
 
+   
+
     return (
     <section className="header">
         <nav className="navbar">
@@ -98,10 +106,10 @@ const Header = memo(({childRefs}) =>{
                 })}
             </ul>
             <div className="language-selector">
-                <select className='selection' name="language">
-                    <option value="en">ENG</option>
-                    <option value="ru">CZ</option>
-                    <option value="de">UKR</option>
+                <select onChange={(e) => changeLanguage(e.target.value)} className='selection' name="language">
+                    <option  value="en">ENG</option>
+                    <option  value="cz">CZ</option>
+                    <option  value="ua">UKR</option>
                 </select>
             </div>
             
