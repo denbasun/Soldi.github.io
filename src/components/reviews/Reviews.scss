@@ -5,7 +5,9 @@
         margin-left:120px;
     }
     &-slider{
+        
         .reviews-card-wrapper{
+                
                 margin: 36px 104px 32px 120px;
                 overflow: hidden;
             .slider-wrapper{
@@ -32,15 +34,23 @@
                 user-select: none;
                 cursor: pointer;
                 &:hover{
-                    box-shadow: 0px 1px 14px  rgba(58, 134, 255, 1);
-                    background-color: #3a86ff;
+                    @media (hover: hover) {
+                        box-shadow: 0px 1px 14px  rgba(58, 134, 255, 1);
+                        background-color: #3a86ff;
+                    
+                        
+                      }
+                    
                 }
             }
             .active{
                 border-radius: 5px;
                 width: 51px;
+                box-shadow: 0px 1px 14px  rgba(58, 134, 255, 1);
+                background-color: #3a86ff;
                 
             }
         }
     }
 }
+

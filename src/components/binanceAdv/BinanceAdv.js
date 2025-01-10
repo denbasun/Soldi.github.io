@@ -3,7 +3,10 @@ import './BinanceAdv.scss';
 
 function BinanceAdv() {
     let binanceArr = [];
-    for(let i=0; i <=4; i++){
+
+    
+
+    for(let i=0; i <= 4 ; i++){
         binanceArr.push(<img className="binance-adv-logo" src={binanceLogo} alt="binance Logo" key={i}/>)
     }
     // console.log(arr)

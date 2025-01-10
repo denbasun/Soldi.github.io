@@ -34,3 +34,21 @@
         }
     }
 }
+
+
+@media (max-width: 992px) {
+    .fees{
+        .fees-card{
+            padding: 30px 30px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .fees{
+        .union-circles-pic{
+            width: 100%;
+            height: auto;
+        }
+    }
+}

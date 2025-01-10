@@ -22,8 +22,6 @@
         justify-content: center;
         align-content: center;
         grid-auto-flow: dense;
-        
-       
     }
 }
 
@@ -31,6 +29,38 @@
     .how-it-works{
         .union-circles-pic{
             margin-left: 40%;
+        }
+    }
+}
+
+@media (max-width: 1200px) {
+    .how-it-works{
+        .union-circles-pic{
+            margin-left: 28%;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .how-it-works{
+        margin-bottom: 20px;
+        .union-circles-pic{
+            margin-left: 1%;
+        }
+        .grid-wrapper{
+            gap: 8px;
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-rows: repeat(1, 1fr);
+        }
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .how-it-works{
+        .union-circles-pic{
+            width: 100%;
+            height: auto;
         }
     }
 }

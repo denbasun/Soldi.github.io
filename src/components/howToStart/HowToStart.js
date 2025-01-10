@@ -25,13 +25,13 @@ function HowToStart({setRef}) {
             </div>
             <div className="how-to-start-card-wrapper">
                 <div className="how-to-start-card">
-                    <div className="how-to-start-text">License and link to the main domain to prove<br></br> the legality of your business</div>
+                    <div className="how-to-start-text">License and link to the main domain to prove the legality of your business</div>
                     <img src={domainPicture} alt="domain picture"/>
                 </div>
                 <div className="how-to-start-card">
                     <div className="how-to-start-text">Permission to transfer user documents *</div>
                     <img src={scanPicture} alt="scan picture" className="scan-picture"/>
-                    <div className="how-to-start-text-special">* Some of our partners may ask for KYC and to <br></br> simplify the flow, we can transfer the <br></br> documents that you provide to us</div>
+                    <div className="how-to-start-text-special">* Some of our partners may ask for KYC and to  simplify the flow, we can transfer the documents that you provide to us</div>
                 </div>
             </div>
         </section>

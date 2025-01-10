@@ -9,11 +9,11 @@ import './HowItWorks.scss';
 import '../../style/style.scss';
 import HowItWorksCard from '../howItWorksCard/HowItWorksCard'
 const cardData = [
-    {stepId:1, stepText:'1. You integrate Soldi\n and get our widget', stepImg: step1, stepAlt:'Integration img'},
-    {stepId:2, stepText:'2. User selects payment \n method  and enters his data', stepImg: step2, stepAlt:'Selects payment img'},
-    {stepId:3, stepText:'3. Soldi chooses the partner \n for conducting a transaction \n and sends the data to him', stepImg: step3, stepAlt:'chooses the partner and send img'},
-    {stepId:4, stepText:'4. Our partner makes the payment and \n notifies Soldi about the results', stepImg: step4, stepAlt:'payment img'},
-    {stepId:5, stepText:'5. Soldi sends confirmation of \n completion of transactions to you', stepImg: step5, stepAlt:'completion of transactions img'}
+    {stepId:1, stepText:'1. You integrate Soldi and get our widget', stepImg: step1, stepAlt:'Integration img'},
+    {stepId:2, stepText:'2. User selects payment method  and enters his data', stepImg: step2, stepAlt:'Selects payment img'},
+    {stepId:3, stepText:'3. Soldi chooses the partner for conducting a transaction and sends the data to him', stepImg: step3, stepAlt:'chooses the partner and send img'},
+    {stepId:4, stepText:'4. Our partner makes the payment and notifies Soldi about the results', stepImg: step4, stepAlt:'payment img'},
+    {stepId:5, stepText:'5. Soldi sends confirmation of completion of transactions to you', stepImg: step5, stepAlt:'completion of transactions img'}
 ]
 
 function HowItWorks({setRef}) {
@@ -42,12 +42,7 @@ function HowItWorks({setRef}) {
                      return(
                         <HowItWorksCard 
                             stepImg={stepImg} 
-                            stepText={stepText.split('\n').map((line, i) => (
-                                <div key={i}>
-                                    {line}
-                                    <br/>
-                                </div>
-                            ))} 
+                            stepText={stepText} 
                             stepId={`item${stepId}`} 
                             stepAlt = {stepAlt} 
                             stepKey={stepId}

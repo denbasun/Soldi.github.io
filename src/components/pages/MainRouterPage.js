@@ -11,11 +11,11 @@ import HowToStart from '../howToStart/HowToStart';
 import Contacts from '../contacts/Contacts';
 
 import '../../style/style.scss';
-import {useRef, useEffect} from 'react';
+import {useRef, useEffect, useState} from 'react';
 
 
 const MainRouterPage = ({getRefArr})=>{
-    console.log('Render MainRoterPage')
+    console.log('Render MainRouterPage')
     
     const childRef = useRef([]);
 

@@ -12,11 +12,19 @@ h2{
     line-height: 100%;
     color: #fff;
 }
-hr{
+.line{
     border: 1px solid #484848;
     max-width: 1196px;
     height: 2px;
     margin: 0 auto;
     margin-top: 18px;
     
+}
+@media (max-width: 768px) {
+    .line{
+        margin-top: 30px;
+        &-burger{
+            margin-top: 246px; 
+        }
+    }
 }

@@ -41,3 +41,21 @@
         color: #949da8;
     }
 }
+
+@media (max-width: 1200px) {
+    .review-card{
+        .user-header{
+            .user-info{
+                margin-left: 8px;
+                .name{
+                    font-size: 14px;
+                }
+            }
+           
+        }
+        .review-text{
+            margin-top: 14px;
+        }
+    }
+   
+ }

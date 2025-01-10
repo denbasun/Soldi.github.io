@@ -16,10 +16,11 @@
             position: relative;
             margin-top: 36px;
             border-radius: 20px;
-            width: 49%;
+            width: 49.5%;
             height: 236px;
             background-color: #111;
             .how-to-start-text{
+                width: 50%;
                 margin: 32px 32px;
                 font-weight: 400;
                 font-size: 14px;
@@ -36,6 +37,7 @@
                 right: 40px;
             }
             .how-to-start-text-special{
+                width: 40%;
                 margin: 99px 0 0  32px ;
                 font-weight: 400;
                 font-size: 12px;
@@ -44,5 +46,33 @@
             }
         }
         
+    }
+}
+
+@media (max-width: 1100px) {
+    .how-to-start{
+        .how-to-start-card-wrapper{
+            .how-to-start-card{
+                .how-to-start-text{
+                    width: 40%;
+                }
+                .scan-picture{
+                    right: 1px;
+                    width: 38%
+                }
+                img{
+                    width: 70%;
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    
+                }
+                .how-to-start-text-special{
+                    margin: 55px 0 0  20px ;
+                    width: 50%
+                }
+            }
+           
+        }
     }
 }
