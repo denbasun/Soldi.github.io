@@ -1,9 +1,6 @@
 .reviews{
     min-height: 670px;
     padding-top: 120px;
-    .review-info-wrapper{
-        margin-left:120px;
-    }
     &-slider{
         
         .reviews-card-wrapper{
@@ -54,3 +51,16 @@
     }
 }
 
+@media (max-width: 576px) {
+    .reviews{
+        &-slider{
+            .reviews-card-wrapper{
+                    margin: 36px 20px 32px 20px;
+
+               
+            }
+            
+        }
+    }
+   
+}

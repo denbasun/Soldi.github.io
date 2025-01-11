@@ -38,7 +38,7 @@
 @media (max-width: 900px) {
    .main-page {
       .main-page-wrapper{
-         margin-left: 90px;
+         margin-left: 105px;
          h1{
             font-size: 60px;
          }
@@ -67,9 +67,25 @@
 @media (max-width: 576px) {
    .main-page {
       .main-page-wrapper{
+         margin-left: 0px;
          h1{
             font-size: 80px;
          }
+      }
+     
+   }
+}
+
+@media (max-width: 414px) {
+   .main-page {
+      .main-page-wrapper{
+         margin-left: 0px;
+         h1{
+            font-size: 60px;
+         }
+      }
+      img{
+         height: 350px;
       }
      
    }

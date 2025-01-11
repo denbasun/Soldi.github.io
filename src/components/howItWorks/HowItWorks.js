@@ -32,7 +32,7 @@ function HowItWorks({setRef}) {
         <section ref={HowItWorksRef} id={2} className="how-it-works">
             <img className="union-circles-pic" src={unionCirclesPic} alt="union circles picture" />
 
-            <div className="how-it-works-header">
+            <div className="text-header">
                 <div  className="blue-text">HOW IT WORKS</div>  
                 <h2>Just 5 steps to get your money</h2>
             </div>

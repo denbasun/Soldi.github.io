@@ -10,9 +10,7 @@
         height: 670px;
         z-index: -1;
     }
-    .how-it-works-header{
-        margin-left: 120px;
-    }
+
     .grid-wrapper{
         margin: 36px 120px 126px 120px;
         display: grid;
@@ -61,6 +59,21 @@
         .union-circles-pic{
             width: 100%;
             height: auto;
+        }
+        .grid-wrapper{
+            margin: 36px 50px 126px 50px;
+        }
+    }
+}
+
+@media (max-width: 414px) {
+    .how-it-works{
+        .union-circles-pic{
+            width: 100%;
+            height: auto;
+        }
+        .grid-wrapper{
+            margin: 36px 5px 126px 5px;
         }
     }
 }

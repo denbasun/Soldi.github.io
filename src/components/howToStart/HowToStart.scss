@@ -1,10 +1,6 @@
 .how-to-start{
-
     min-height: 590px;
     padding-top: 130px;
-    .how-to-start-wrapper{
-        margin-left: 120px;
-    }
 
     .how-to-start-card-wrapper{
         margin: 0 auto;
@@ -73,6 +69,28 @@
                 }
             }
            
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .how-to-start{
+        padding-top: 30px;
+        .how-to-start-card-wrapper{
+           flex-direction: column;
+           .how-to-start-card{
+            width: 80%;
+           }
+        }
+    }
+}
+
+@media (max-width: 414px) {
+    .how-to-start{
+        .how-to-start-card-wrapper{
+           .how-to-start-card{
+            width: 100%;
+           }
         }
     }
 }

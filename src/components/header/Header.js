@@ -114,7 +114,7 @@ const Header = memo(({childRefs}) =>{
    }
 
     return (
-        <section  className={clickedBurger ? "header header-burger" : 'header'}>
+        <section  className={smallWidth? (clickedBurger ? "header header-burger" : 'header'): 'header'}>
             <nav className="navbar">
                 <Link onClick={()=>handleClick(-1)} to='/' className="logo-wrapper">
                     <img src={logo} alt="logo" ></img>

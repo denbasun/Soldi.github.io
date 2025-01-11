@@ -102,7 +102,7 @@ function Reviews({setRef}) {
     
     return(
         <section ref={reviewsRef} id={4} className="reviews">
-            <div className="review-info-wrapper">
+            <div className="text-header">
                 <div className="blue-text">Reviews</div>
                 <h2>They trust us</h2>
                 

@@ -19,7 +19,7 @@ function HowToStart({setRef}) {
     return(
         <section  ref ={howToStartRef} id={3} className="how-to-start">
           
-            <div className="how-to-start-wrapper">
+            <div className="text-header">
                 <div className="blue-text">HOW TO START</div>
                 <h2>To start work with us we need</h2>
             </div>

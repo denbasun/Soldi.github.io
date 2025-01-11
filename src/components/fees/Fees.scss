@@ -4,7 +4,7 @@
     padding-top: 78px;
     .union-circles-pic{
         position: absolute;
-        left: -40px;
+        left: 0px;
         bottom: -120px;
         z-index: -1;
     }
@@ -46,9 +46,28 @@
 
 @media (max-width: 768px) {
     .fees{
+        svg{
+            rotate: 90deg;
+        }
+        .fees-card{
+            display: block;
+            height: 100%;
+            width: 50%;
+            text-align: center;
+        }
         .union-circles-pic{
             width: 100%;
             height: auto;
         }
+    }
+}
+
+@media (max-width: 414px) {
+    .fees{
+        .fees-card{
+            width: 80%;
+
+        }
+       
     }
 }
