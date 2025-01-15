@@ -28,17 +28,18 @@ function Contacts({setRef}) {
 
             <div className="contact-card">
                 <img className="contact-union-circles" src={unionImage} alt="circles"  />
-                    <div className="socialmedia-wrapper">
-                        <a className="gmail-logo" href="#">
+                    
+            </div>
+            <div className="socialmedia-wrapper">
+                        <div className="social-logo" href="#">
                             <img  src={gmail} alt="gmail logo"  />
                             <div className="social-media-text">soldi@gmail.com</div>
-                        </a>
-                        <a className="telegram-logo" href="#">
+                        </div>
+                        <div className="social-logo" href="#">
                             <img  src={telegram} alt="telegram logo"  />
                             <div className="social-media-text">@soldi</div>
-                        </a>
+                        </div>
                     
-                    </div>
             </div>
             <Form/>
             

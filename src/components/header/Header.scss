@@ -37,32 +37,71 @@
                 height: 200px;
                 position: absolute;
                 top: 80px;
+                
             }
             li{
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                a{ 
+                .link {
                     font-weight: 400;
                     font-size: 14px;
                     line-height: 143%;
-                    color: #949da8;
+                    color: #d1d5db;
                     text-transform: uppercase;
                     text-decoration: none;
                     cursor: pointer;
+                    &-active {
+                        color: #3a86ff;
+                        &:after{
+                            content: '';
+                            margin-top: 8px;
+                            display: block;
+                            width:100%;
+                            height: 2px;
+                            background-color: #3a86ff;
+                           
+                        }
+                    }
                 }
-                .active{
-                    color: #3a86ff;
-                    &:after{
-                        content: '';
-                        margin-top: 8px;
-                        display: block;
-                        width:100%;
-                        height: 2px;
-                        background-color: #3a86ff;
+                .faq{
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 143%;
+                    color: #d1d5db;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    cursor: pointer;
+                    border: 2px solid #ccc;
+                    padding: 1px 5px;
+                    margin-top: -4px;
+                    border-radius: 5px;
+                    &:hover {
+                        @media (hover: hover) {
+                            background-color: #2563eb; /* Темнее при наведении */
+                            transform: scale(1.05); /* Небольшое увеличение */
+                            transition: all 0.3s ease;
+                        }
+                        
+                    }
+                    &-active{
+                        padding-left: 2px;
+                         &::before{
+                            content: "\25C4";
+                            margin-right: 2px;
+                        }
+                        &:hover {
+                            @media (hover: hover) {
+                                background-color: #2563eb; /* Темнее при наведении */
+                                transform: scale(1.05); /* Небольшое увеличение */
+                                transition: all 0.3s ease;
+                            }
+                            
+                        }
                        
                     }
                 }
+               
             }
             
         }
@@ -140,24 +179,38 @@
 
 @media (max-width: 768px) {
     .header{
+        backdrop-filter: blur(20px);
         .navbar{
             .nav-links{
                 flex-direction: column;
                 li{
                     font-size: 15px;
                     line-height: 200%;
-                    a{ 
+                    .link{ 
                         font-size: 18px;
+                        font-weight: 600;
+                        &-active{
+                            color: #3a86ff;
+                            &:after{
+                                content: '';
+                                margin-top: -2px;
+                               
+                            }
+                        }
                     }
-                    .active{
-                        color: #3a86ff;
-                        &:after{
-                            content: '';
-                            margin-top: -2px;
-                           
+                    .faq{
+                        font-weight: 600;
+                        font-size: 20px;
+                        // padding: -1px, 5px;
+                        margin-top: 0px;
+                        &-active{
+                             &::before{
+                                content: "\25B2";
+                            }
                         }
                     }
                 }
+                
             }
             .language-selector{
                 .selection{

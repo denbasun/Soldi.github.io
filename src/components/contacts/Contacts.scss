@@ -34,32 +34,34 @@
                 left: -476px;
                 z-index: -1;
             }
-            .socialmedia-wrapper{
-                margin-top: 420px;
+           
+        }
+        .socialmedia-wrapper{
+            margin-top: 420px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 32px;
+            margin-left: 40px;
+            position: absolute;
+            z-index: 2;
+            .social-logo{
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
-                width: 350px;
-                height: 32px;
-                margin-left: 40px;
-                a{
-                    display: flex;
-                    justify-content: flex-start;
-                    align-items: center;
-                    text-decoration: none;
-                    margin-right: 60px;
-                    img{
-                        margin-right: 16px;
-                    }
+                text-decoration: none;
+                margin-right: 60px;
+                img{
+                    margin-right: 16px;
                 }
+            }
+            
+            .social-media-text{
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 143%;
+                color: #fff;
                 
-                .social-media-text{
-                    font-weight: 400;
-                    font-size: 14px;
-                    line-height: 143%;
-                    color: #fff;
-                    
-                }
             }
         }
         
@@ -70,9 +72,10 @@
     .contacts{
         .contacts-wrapper{
             .contact-card{
-                .socialmedia-wrapper{
-                    margin-left: 30px;
-                }
+                
+            }
+            .socialmedia-wrapper{
+                margin-left: 30px;
             }
             
         }
@@ -86,10 +89,38 @@
             display: flex;
             flex-direction: column;
             width:90%;
+            
             .contact-card{
                 display: none;
             }
+            .socialmedia-wrapper{
+                margin-left: 0px;
+                position: static;
+                order: 2;
+                justify-content: space-around;
+                margin-top: 30px;
+                align-items: center;
+                margin: 10px 100px 10px 100px;
+                .social-logo{
+                    margin-right: 0px;
+                    img{
+                        margin-right: 10px;
+                    }
+                }
+            }
             
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .contacts{
+        .contacts-wrapper{
+            .contact-card{
+            }
+            .socialmedia-wrapper{
+                margin: 10px 0px 10px 0px;
+            }
         }
     }
 }

@@ -37,3 +37,15 @@
         text-align: center;
     }
 }
+
+@media (max-width: 768px) {
+    .faq{
+        .union-circles-pic{
+            width: 100%;
+            height: auto;
+            left: 0px;
+            rotate: 0deg;
+        }
+    }
+}
+

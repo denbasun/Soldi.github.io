@@ -12,6 +12,7 @@ const Form = memo(({isOpen, handleClick}) =>{
     const [formError, setFormError] = useState({})
     const [formDone, setFormDone] = useState(false)
     const [resOK, setResOk] = useState(false)
+    const [disabled, setDisabled] = useState(false)
 
     const isEmailValid = useCallback((email) => {
         const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -76,6 +77,7 @@ const Form = memo(({isOpen, handleClick}) =>{
     const sendEmail = (e)=>{
         e.preventDefault()
 
+        setDisabled(true)
         const errors = validateForm()
         setFormError(errors)
         
@@ -99,6 +101,7 @@ const Form = memo(({isOpen, handleClick}) =>{
                
             }).then(res => {
                     setFormDone(true)
+                    setDisabled(false)
                 if(res.ok){
                     console.log('Email sent!');
                     setResOk(true)
@@ -141,7 +144,7 @@ const Form = memo(({isOpen, handleClick}) =>{
                             {<div className='error'>{formError ? formError.userMessage : null}</div>}
                         </div>
                         
-                        <button type="submit" value="Send" className="button button-submit">Send</button>
+                        <button type="submit" value="Send" className={ disabled ? "button button-submit_disabled" : "button button-submit" }>Send</button>
                         
                     </form>
                     

@@ -20,21 +20,21 @@ const Header = memo(({childRefs}) =>{
     const [activeRef, setActiveRef] = useState(0);
     const { t, i18n } = useTranslation();
     const [clickedBurger, setClickedBurger] = useState(false)
-    const smallWidth = window.matchMedia(`(max-width: 768px)`).matches
+    const smallWidth = window.innerWidth <= 768
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+   
     const changeLanguage = (lng) => {
       i18n.changeLanguage(lng);
     };
 
     const handleClick = useCallback((index, offset) => {
+        setClickedBurger(false)
         setClickedId(index);
         window.scrollTo({
           top: offset,
           behavior: 'smooth',
         });
     }, []);
-
 
     useEffect(() => {
 		// Функция для обновления ширины
@@ -50,6 +50,8 @@ const Header = memo(({childRefs}) =>{
 		window.removeEventListener("resize", handleResize);
 		};
 	}, [windowWidth]);
+
+   
 
     useEffect(() => {
         console.log(smallWidth)
@@ -67,10 +69,9 @@ const Header = memo(({childRefs}) =>{
                     }      
                 });
             }, {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.5,
-
+                root: null, // Наблюдаем за viewport
+                rootMargin: '-50% 0px', // Центр экрана становится границей отслеживания
+                threshold: 0 // Срабатывает, как только верхняя часть элемента пересечёт границу
             });
 
             result.forEach((item, i) => {
@@ -116,7 +117,7 @@ const Header = memo(({childRefs}) =>{
     return (
         <section  className={smallWidth? (clickedBurger ? "header header-burger" : 'header'): 'header'}>
             <nav className="navbar">
-                <Link onClick={()=>handleClick(-1)} to='/' className="logo-wrapper">
+                <Link onClick={()=>handleClick(-1, 0)} to='/' className="logo-wrapper">
                     <img src={logo} alt="logo" ></img>
                 </Link >
 
@@ -124,8 +125,11 @@ const Header = memo(({childRefs}) =>{
                 <ul className={smallWidth ? (!clickedBurger ? "nav-links hide" : "nav-links nav-links-burger") : "nav-links"}>
                     {linksData.map((element, i)=>{
                         const {id, text} = element
+                        const clazz = id <= linksData.length-1 ? 'link' : 'faq'
                         return(
-                            <li  key={id}><Link to={i === 5 ? "/help" : '/'} onClick={() => handleClick(i)} className={activeRef == id ? "active" : ''}>{text}</Link></li>
+                        
+                            <li  key={id}><Link to={i === 5 ? "/help" : '/'} onClick={() => handleClick(i)} className={activeRef == id ? `${clazz} ${clazz}-active` : `${clazz}`}>{text}</Link></li>
+                            
                         )
                     })}
                 </ul>

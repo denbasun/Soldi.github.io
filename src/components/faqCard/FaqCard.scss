@@ -38,3 +38,12 @@
         color: #3a86ff;
     }
 }
+
+
+@media (max-width: 414px) {
+    .faq{
+        &-card{
+            padding: 16px 5px;
+        }
+    }
+}
