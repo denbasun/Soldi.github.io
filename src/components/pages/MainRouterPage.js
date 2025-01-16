@@ -11,7 +11,7 @@ import HowToStart from '../howToStart/HowToStart';
 import Contacts from '../contacts/Contacts';
 
 import '../../style/style.scss';
-import {useRef, useEffect, useState} from 'react';
+import {useRef, useEffect, useCallback} from 'react';
 
 
 const MainRouterPage = ({getRefArr})=>{
@@ -34,16 +34,15 @@ const MainRouterPage = ({getRefArr})=>{
        
     };
 
-    const handleSendData = () => {
-
-        getRefArr(childRef.current)
-    };
+    const handleSendData = useCallback(() => {
+        getRefArr(childRef.current);
+    }, [getRefArr]);
 
     useEffect(()=>{
 
         handleSendData()
 
-    },[])
+    },[handleSendData])
 
     return(
         <>

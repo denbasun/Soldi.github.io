@@ -1,8 +1,89 @@
 {
+    "header":{
+        "aboutUs":"About us",
+        "howItWorks":"How it works",
+        "howToStart":"How to start",
+        "reviews":"Reviews",
+        "contacts":"Contacts",
+        "faq": "Faq"
+    },
     "aboutUs":{
         "sectionTitle": "About Us",
         "header-h2": "Your payment solution",
         "description_pt1": "SOLDY is a payment solution that allows you to accept fiat currency from clients and receive crypto into your account.",
         "description_pt2": "We bring together a large number of partners, which allows us to ensure a variety of payment pairs, the availability of liquidity, and the diversification of risks."
+    },
+    "mainPage":{
+        "h1": "Your payment solution",
+        "button": "Contact us"
+    },
+    "howItWorks":{
+        "blueText": "HOW IT WORKS",
+        "h2": "Just 5 steps to get your money",
+        "step1": "1. You integrate Soldi and get our widget",
+        "step2": "2. User selects payment method and enters his data",
+        "step3": "3. Soldi chooses the partner for conducting a transaction and sends the data to him",
+        "step4": "4. Our partner makes the payment and notifies Soldi about the results",
+        "step5": "5. Soldi sends confirmation of completion of transactions to you"
+    },
+    "howToStart":{
+        "blueText": "HOW TO START",
+        "h2": "Just 5 steps to get your money",
+        "text1": "License and link to the main domain to prove the legality of your business",
+        "text2": "Permission to transfer user documents *",
+        "textSpecial": "* Some of our partners may ask for KYC and to simplify the flow, we can transfer the documents that you provide to us"
+    },
+    "reviews":{
+        "blueText": "REVIEWS",
+        "h2": "They trust us"
+    },
+    "reviewsCard":{
+        "reviewText1": "I have been using Solidi 3 for my business for several months now. It is an excellent payment system with fast transactions and an easy-to-use interface. Everything works smoothly, and support is always available. Highly recommended!",
+        "reviewText2": "I am very satisfied with Solidi 3. All transactions are quick, and the interface is very intuitive. I have not encountered any issues so far. It is a great system for regular payments!",
+        "reviewText3": "Solidi 3 is exactly what I need to streamline my financial transactions. Payments are processed instantly, and I feel secure using it. I would definitely recommend this system to anyone who values time and security.",
+        "reviewText4": "Overall, it is a good service. It works reliably, but sometimes there are slight delays in transfers. If this issue gets resolved, I would give it 5 stars. Otherwise, everything is great.",
+        "reviewText5": "Solidi 3 is a fantastic payment system that has made my transactions effortless. The user interface is sleek, and I love how fast the transactions are. I have never had any issues. Highly recommend it!",
+        "reviewText6": "I’ve been using Solidi 3 for some time now, and it’s great for managing personal and business payments. The platform is secure and straightforward. The occasional minor delay is the only downside, but overall, it’s excellent.",
+        "reviewText7": "Using Solidi 3 has been an amazing experience. The payment system is quick, reliable, and very secure. I’ve recommended it to all my colleagues. Definitely a must-try for anyone looking for efficiency!",
+        "reviewText8": "Solidi 3 is very user-friendly, and the speed of transactions is impressive. I use it daily for my business, and it has never let me down. Great service and excellent support team.",
+        "reviewText9": "I like Solidi 3 because it’s very intuitive and handles payments securely. It’s a bit pricey compared to other options, but the reliability and speed make up for it. Worth every penny.",
+        "footerData1": "March 23, 2023",
+        "footerData2": "December 1, 2024",
+        "footerData3": "April 09, 2024",
+        "footerData4": "September 29, 2024",
+        "footerData5": "July 14, 2024",
+        "footerData6": "January 12, 2023",
+        "footerData7": "May 3, 2024",
+        "footerData8": "October 8, 2024",
+        "footerData9": "November 2, 2023"
+    },
+    "formCard":{
+        "h2":"Contact us",
+        "name":"Your name",
+        "email":"Your email ",
+        "message":"Message",
+        "button":"Send"
+    },
+    "faq": {
+        "blueText": "FAQ",
+        "h2": "Wellcome to help center",
+        "descr": "Welcome to our FAQ page! We’ve complied a list of commonly asked questions to provide you with quick and informative answers.",
+        "question1":"What is SOLDY", 
+        "answer1": "SOLDY is a payment solution that enables businesses to accept fiat payments from clients and seamlessly receive cryptocurrency in their accounts.",
+        "question2":"How does SOLDY work?", 
+        "answer2": "SOLDY acts as a bridge between fiat and crypto transactions. Clients can pay in fiat currency, and the amount is converted to cryptocurrency, which is then credited to your account.",
+        "question3":"What payment pairs are available?", 
+        "answer3": "SOLDY supports a wide range of payment pairs thanks to its network of partners. This ensures flexibility and the ability to cater to various business needs.",
+        "question4":"Is liquidity guaranteed?", 
+        "answer4": "Yes, SOLDY collaborates with multiple partners to maintain the availability of liquidity for transactions.",
+        "question5":"How does SOLDY minimize risks?", 
+        "answer5": "By working with a diverse set of partners, SOLDY achieves effective risk diversification, ensuring reliable and secure transactions.",
+        "question6":"Who can use SOLDY?", 
+        "answer6": "SOLDY is ideal for businesses and individuals looking to accept fiat payments and receive cryptocurrency seamlessly, regardless of their industry.",
+        "question7":"Is SOLDY secure?",
+        "answer7": "Yes, SOLDY prioritizes the security of transactions by partnering with trusted providers and implementing robust risk management strategies.",
+        "stillQuestion": "Still have a question?",
+        "writeUs": "Write us!"
     }
+
 }

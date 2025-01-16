@@ -3,25 +3,14 @@ import '../../style/style.scss';
 import ReviewCard from '../reviewCard/ReviewCard'
 import { useRef, useEffect, useState, useMemo, useCallback } from 'react';
 import { useSwipeable } from 'react-swipeable';
-
+import { useTranslation } from 'react-i18next'
 import reviewsData from '../reviewsData/reviewsData';
 const importAll = (r) => r.keys().map(r);
 const images = importAll(require.context('../../../src/assets/users_images', false, /\.png$/));
 
 function Reviews({setRef}) {
     console.log('Review render')
-   
-    // const [value, setValue] = useState(() => {
-    //     if(window.matchMedia('(max-width: 768px)').matches){
-    //         return 1;
-    //     }else if (window.matchMedia('(max-width: 992px)').matches) {
-    //         return 2;
-    //     } else if (window.matchMedia('(max-width: 1200px)').matches) {
-    //         return 3;
-    //     } else {
-    //         return 4;
-    //     }
-    // });
+    const { t } = useTranslation()
     const [value, setValue] = useState(getSlideValue);
     const [SliderWidth, setSliderWidth] = useState(0);
     const [offset, setOffset] = useState(0)
@@ -103,8 +92,8 @@ function Reviews({setRef}) {
     return(
         <section ref={reviewsRef} id={4} className="reviews">
             <div className="text-header">
-                <div className="blue-text">Reviews</div>
-                <h2>They trust us</h2>
+                <div className="blue-text">{t('reviews.blueText')}</div>
+                <h2>{t('reviews.h2')}</h2>
                 
             </div>
             <div className="reviews-slider">
@@ -114,7 +103,7 @@ function Reviews({setRef}) {
                             {reviewsData.map((card,i) =>{
                                 const {img, text, mark, PaymentMethod, data, name}=card
                                 return(
-                                    <ReviewCard slideWidth={slideCardWidth} key = {i} userName={name} userImg={images[i]} userText={text} userMark={mark} userPayment={PaymentMethod} data={data}/>
+                                    <ReviewCard slideWidth={slideCardWidth} key = {i} userName={name} userImg={images[i]} userText={t(text)} userMark={mark} userPayment={PaymentMethod} data={t(data)}/>
                                 )
                             })
                             }

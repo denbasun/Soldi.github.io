@@ -1,18 +1,19 @@
 import logo from '../../../src/logo_blue.png'
 import './Header.scss';
-import { useState, useEffect, memo, useCallback} from 'react';
+import { useState, useEffect, memo, useCallback, useMemo} from 'react';
 import '../../style/style.scss';
 import {Link} from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 
 const linksData = [
-    {id: 1,text: 'About us'},
-    {id: 2,text: 'How It Works'},
-    {id: 3,text: 'How To Start'},
-    {id: 4,text: 'Reviews'},
-    {id: 5,text: 'Contacts'},
-    {id: 6,text: 'FAQ'},
+    {id: 1,text: 'header.aboutUs'},
+    {id: 2,text: 'header.howItWorks'},
+    {id: 3,text: 'header.howToStart'},
+    {id: 4,text: 'header.reviews'},
+    {id: 5,text: 'header.contacts'},
+    {id: 6,text: 'header.faq'},
 ]
+
 const Header = memo(({childRefs}) =>{
     console.log('Header render ')
     
@@ -20,9 +21,9 @@ const Header = memo(({childRefs}) =>{
     const [activeRef, setActiveRef] = useState(0);
     const { t, i18n } = useTranslation();
     const [clickedBurger, setClickedBurger] = useState(false)
-    const smallWidth = window.innerWidth <= 768
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-   
+    const smallWidth = useMemo(() => windowWidth <= 768, [windowWidth]);
+    
     const changeLanguage = (lng) => {
       i18n.changeLanguage(lng);
     };
@@ -49,12 +50,11 @@ const Header = memo(({childRefs}) =>{
 		return () => {
 		window.removeEventListener("resize", handleResize);
 		};
-	}, [windowWidth]);
+	}, []);
 
    
 
     useEffect(() => {
-        console.log(smallWidth)
         const loadData = async() =>{
             
             const result = await childRefs()
@@ -128,7 +128,7 @@ const Header = memo(({childRefs}) =>{
                         const clazz = id <= linksData.length-1 ? 'link' : 'faq'
                         return(
                         
-                            <li  key={id}><Link to={i === 5 ? "/help" : '/'} onClick={() => handleClick(i)} className={activeRef == id ? `${clazz} ${clazz}-active` : `${clazz}`}>{text}</Link></li>
+                            <li  key={id}><Link to={i === 5 ? "/help" : '/'} onClick={() => handleClick(i)} className={activeRef == id ? `${clazz} ${clazz}-active` : `${clazz}`}>{t(text)}</Link></li>
                             
                         )
                     })}
@@ -140,6 +140,7 @@ const Header = memo(({childRefs}) =>{
                         <option  value="en">ENG</option>
                         <option  value="cz">CZ</option>
                         <option  value="ua">UKR</option>
+                        <option  value="ru">RU</option>
                     </select>
                 </div>
 

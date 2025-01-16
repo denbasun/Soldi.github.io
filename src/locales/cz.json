@@ -1,8 +1,89 @@
 {
-    "aboutUs":{
+    "header": {
+        "aboutUs": "O nás",
+        "howItWorks": "Jak to funguje",
+        "howToStart": "Jak začít",
+        "reviews": "Recenze",
+        "contacts": "Kontakty",
+        "faq": "FAQ"
+    },
+    "aboutUs": {
         "sectionTitle": "O nás",
         "header-h2": "Vaše platební řešení",
-        "description_pt1": "SOLDY je platební řešení, které vám umožňuje přijímat fiat od klientů a přijímat kryptoměny na váš účet.",
-        "description_pt2": "Sdružujeme velké množství partnerů, což nám umožňuje zajistit různé platební páry, dostupnost likvidity a diverzifikaci rizik."
+        "description_pt1": "SOLDY je platební řešení, které vám umožňuje přijímat fiat měnu od klientů a přijímat kryptoměnu na váš účet.",
+        "description_pt2": "Spojujeme velké množství partnerů, což nám umožňuje zajistit různorodost platebních párů, dostupnost likvidity a diverzifikaci rizik."
+    },
+    "mainPage": {
+        "h1": "Vaše platební řešení",
+        "button": "Kontaktujte nás"
+    },
+    "howItWorks": {
+        "blueText": "JAK TO FUNGUJE",
+        "h2": "Pouze 5 kroků k získání vašich peněz",
+        "step1": "1. Integrujete Soldi a získáte náš widget",
+        "step2": "2. Uživatel vybere způsob platby a zadá své údaje",
+        "step3": "3. Soldi vybere partnera pro provedení transakce a předá mu údaje",
+        "step4": "4. Náš partner provede platbu a informuje Soldi o výsledcích",
+        "step5": "5. Soldi vám pošle potvrzení o dokončení transakce"
+    },
+    "howToStart": {
+        "blueText": "JAK ZAČÍT",
+        "h2": "Pouze 5 kroků k získání vašich peněz",
+        "text1": "Licence a odkaz na hlavní doménu pro potvrzení legálnosti vašeho podnikání",
+        "text2": "Povolení k přenosu dokumentů uživatelů *",
+        "textSpecial": "* Někteří z našich partnerů mohou požádat o KYC a k usnadnění procesu můžeme přenášet dokumenty, které nám poskytnete."
+    },
+    "reviews": {
+        "blueText": "RECENZE",
+        "h2": "Důvěřují nám"
+    },
+    "reviewsCard": {
+        "reviewText1": "Používám Solidi 3 pro své podnikání už několik měsíců. Je to vynikající platební systém s rychlými transakcemi a snadno použitelným rozhraním. Všechno funguje hladce a podpora je vždy k dispozici. Vřele doporučuji!",
+        "reviewText2": "Jsem velmi spokojený s Solidi 3. Všechny transakce jsou rychlé a rozhraní je velmi intuitivní. Zatím jsem nenarazil na žádné problémy. Je to skvělý systém pro pravidelné platby!",
+        "reviewText3": "Solidi 3 je přesně to, co potřebuji k zjednodušení svých finančních transakcí. Platby jsou zpracovány okamžitě a cítím se bezpečně při jeho používání. Určitě bych tento systém doporučil každému, kdo si cení času a bezpečnosti.",
+        "reviewText4": "Celkově je to dobrá služba. Funguje spolehlivě, ale někdy dochází k malým zpožděním při převodech. Pokud tento problém bude vyřešen, dal bych 5 hvězdiček. Jinak je všechno skvělé.",
+        "reviewText5": "Solidi 3 je fantastický platební systém, který učinil mé transakce bezproblémovými. Uživatelské rozhraní je elegantní a mám rád, jak rychlé jsou transakce. Nikdy jsem neměl žádné problémy. Vřele doporučuji!",
+        "reviewText6": "Používám Solidi 3 už nějakou dobu a je skvělý pro správu osobních a firemních plateb. Platforma je bezpečná a přehledná. Občasná drobná zpoždění jsou jedinou nevýhodou, ale jinak je to vynikající.",
+        "reviewText7": "Používání Solidi 3 byla úžasná zkušenost. Platební systém je rychlý, spolehlivý a velmi bezpečný. Doporučil jsem ho všem svým kolegům. Určitě to vyzkoušejte, pokud hledáte efektivitu!",
+        "reviewText8": "Solidi 3 je velmi uživatelsky přívětivý a rychlost transakcí je ohromující. Používám ho denně pro své podnikání a nikdy mě nezklamal. Skvělá služba a vynikající podpora.",
+        "reviewText9": "Líbí se mi Solidi 3, protože je velmi intuitivní a bezpečně zpracovává platby. Je to trochu dražší ve srovnání s jinými možnostmi, ale spolehlivost a rychlost to vynahrazují. Stojí to každou korunu.",
+        "footerData1": "23 Března, 2023",
+        "footerData2": "1 Prosince, 2024",
+        "footerData3": "9 Dubna, 2024",
+        "footerData4": "29 Září, 2024",
+        "footerData5": "14 Července, 2024",
+        "footerData6": "12 Ledna, 2023",
+        "footerData7": "3 Května, 2024",
+        "footerData8": "8 Října, 2024",
+        "footerData9": "2 Listopadu, 2023"
+    },
+   
+    "formCard": {
+        "h2": "Kontaktujte nás",
+        "name": "Vaše jméno",
+        "email": "Váš email",
+        "message": "Zpráva",
+        "button": "Odeslat"
+    },
+    "faq": {
+        "blueText": "FAQ",
+        "h2": "Vítejte v centru nápovědy",
+        "descr": "Vítejte na naší stránce FAQ! Sestavili jsme seznam často kladených otázek, abychom vám poskytli rychlé a informativní odpovědi.",
+        "question1": "Co je SOLDY",
+        "answer1": "SOLDY je platební řešení, které umožňuje firmám přijímat fiat platby od klientů a bez problémů přijímat kryptoměny na jejich účty.",
+        "question2": "Jak SOLDY funguje?",
+        "answer2": "SOLDY působí jako most mezi fiatovými a kryptoměnovými transakcemi. Klienti mohou platit v fiat měně a částka je převedena na kryptoměnu, která je následně připsána na váš účet.",
+        "question3": "Jaké platební páry jsou k dispozici?",
+        "answer3": "SOLDY podporuje širokou škálu platebních párů díky své síti partnerů. To zajišťuje flexibilitu a schopnost uspokojit různé potřeby podniků.",
+        "question4": "Je zajištěna likvidita?",
+        "answer4": "Ano, SOLDY spolupracuje s několika partnery, aby zajistil dostupnost likvidity pro transakce.",
+        "question5": "Jak SOLDY minimalizuje rizika?",
+        "answer5": "Spoluprací s různými partnery dosahuje SOLDY efektivní diversifikace rizik, což zajišťuje spolehlivé a bezpečné transakce.",
+        "question6": "Kdo může používat SOLDY?",
+        "answer6": "SOLDY je ideální pro firmy a jednotlivce, kteří chtějí přijímat fiat platby a bez problémů přijímat kryptoměny, bez ohledu na jejich odvětví.",
+        "question7": "Je SOLDY bezpečné?",
+        "answer7": "Ano, SOLDY klade velký důraz na bezpečnost transakcí tím, že spolupracuje s důvěryhodnými poskytovateli a implementuje silné strategie řízení rizik.",
+        "stillQuestion": "Máte stále otázky?",
+        "writeUs": "Napište nám!"
     }
 }

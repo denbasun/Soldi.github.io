@@ -4,9 +4,11 @@ import '../../style/button.scss';
 import { useRef, useEffect, useState, useCallback } from 'react';
 import Modal from '../modal/Modal';
 import Portal from '../portal/Portal';
+import { useTranslation } from 'react-i18next'
 
 function MainPage({setRef}) {
 	console.log('MainPage render')
+	const { t } = useTranslation()
 	const [modalOpen, setModalOpen] = useState(false)
 	const  mainPageRef = useRef(null);
 
@@ -37,8 +39,8 @@ function MainPage({setRef}) {
 	return (
 		<section ref={ mainPageRef} id={0} className="main-page">
 			<div className="main-page-wrapper">
-			<h1>Your payment solution</h1>
-			<button onClick={(e)=>toggleModal(e)} className="button">Contact sales</button>
+			<h1>{t('mainPage.h1')}</h1>
+			<button onClick={(e)=>toggleModal(e)} className="button">{t('mainPage.button')}</button>
 			</div>
 			<img src={iphoneImg} alt="Iphone img" />
 			<Portal>

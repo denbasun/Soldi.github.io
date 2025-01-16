@@ -1,5 +1,6 @@
 import { memo, useState, useCallback, useEffect} from 'react';
 import FormDone from '../formDone/FormDone';
+import { useTranslation } from 'react-i18next'
 import './Form.scss';
 const Form = memo(({isOpen, handleClick}) =>{
     console.log('Form render')
@@ -8,7 +9,7 @@ const Form = memo(({isOpen, handleClick}) =>{
         userEmail: '',
         userMessage: '',
     });
-    
+    const { t } = useTranslation();
     const [formError, setFormError] = useState({})
     const [formDone, setFormDone] = useState(false)
     const [resOK, setResOk] = useState(false)
@@ -124,27 +125,27 @@ const Form = memo(({isOpen, handleClick}) =>{
         <>
             { !formDone ? 
                 <div  className="form-card">
-                    <h2>Contact us</h2>
+                    <h2>{t('formCard.h2')}</h2>
                     <form  onSubmit={(e) => sendEmail(e)} className={"contact-form"}>
                         <div className="form-group">
-                            <label htmlFor="name">Your name</label>
+                            <label htmlFor="name">{t('formCard.name')}</label>
                             <input onChange={(e) =>onInputChange(e)}  value={formData.userName} type="text" id="name" name="userName"  placeholder="John Smith"/>
                             {<div className='error'>{formError ? formError.userName : null}</div>}
                         </div>
                         
                         <div className="form-group">
-                            <label htmlFor="email">Your email <span>*</span></label>
+                            <label htmlFor="email">{t('formCard.email')} <span>*</span></label>
                             <input onChange={(e) =>onInputChange(e)}  value={formData.userEmail} type="email" id="email" name="userEmail"  placeholder="example@gmail.com"/>
                             {<div className='error'>{formError ? formError.userEmail : null}</div>}
                         </div>
                         
                         <div className="form-group">
-                            <label htmlFor="message">Message</label>
+                            <label htmlFor="message">{t('formCard.message')}</label>
                             <input onChange={(e) =>onInputChange(e)}  value={formData.userMessage}  type="message" id="message" name="userMessage" placeholder="Write here your message."/>
                             {<div className='error'>{formError ? formError.userMessage : null}</div>}
                         </div>
                         
-                        <button type="submit" value="Send" className={ disabled ? "button button-submit_disabled" : "button button-submit" }>Send</button>
+                        <button type="submit" value="Send" className={ disabled ? "button button-submit_disabled" : "button button-submit" }>{t('formCard.button')}</button>
                         
                     </form>
                     

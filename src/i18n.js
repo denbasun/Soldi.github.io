@@ -4,12 +4,14 @@ import { initReactI18next } from 'react-i18next';
 import en from './locales/en.json';
 import ua from './locales/ua.json';
 import cz from './locales/cz.json';
+import ru from './locales/ru.json';
 
 i18n.use(initReactI18next).init({
   resources: {
     en: { translation: en },
     ua: { translation: ua },
-    cz: { translation: cz }
+    cz: { translation: cz },
+    ru: { translation: ru },
   },
   lng: 'en', // Язык по умолчанию
   fallbackLng: 'en', // Резервный язык, если перевод не найден
