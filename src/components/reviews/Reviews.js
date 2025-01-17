@@ -18,7 +18,7 @@ function Reviews({setRef}) {
     const sliderRef = useRef(null);
     const slideCardWidth = useMemo(() => Math.round(SliderWidth / value), [SliderWidth, value]);
     const fieldWidth = useMemo(() => `${(100 * reviewsData.length) / value}%`, [reviewsData.length, value]);
-
+    const dotsArr = [];
     function getSlideValue() {
         const breakpoints = [
             { max: 768, value: 1 },
@@ -31,18 +31,20 @@ function Reviews({setRef}) {
     
     const updateSizes = useCallback(() => {
         setValue(getSlideValue());
-        
         setClickedDotId(0);
+        // if(clickedDotId > dotsArr.length){
+        //    
+        // }
         if (sliderRef.current) {
             setSliderWidth(sliderRef.current.getBoundingClientRect().width);
         }
-    }, [setSliderWidth]);
+    }, []);
 
     useEffect(() => {
         window.addEventListener('resize', updateSizes);
         updateSizes();
         return () => window.removeEventListener('resize', updateSizes);
-    }, [updateSizes]);
+    }, []);
 
     useEffect(()=>{
         if(reviewsRef.current){
@@ -62,7 +64,7 @@ function Reviews({setRef}) {
             setClickedDotId((prev) => (prev < dots.length - 1 ? prev + 1 : 0))
           },
         onSwipedRight: () => {
-        setClickedDotId((prev) => (prev > 0 ? prev - 1 : dots.length - 1))
+            setClickedDotId((prev) => (prev > 0 ? prev - 1 : dots.length - 1))
         },
         preventDefaultTouchmoveEvent: true, 
         trackTouch: true,
@@ -70,7 +72,7 @@ function Reviews({setRef}) {
     });
     
     const dots = useMemo(() => {
-        const dotsArr = [];
+       
         for (let i = 0; i < Math.ceil(reviewsData.length/value); i++) {
             dotsArr.push(
                 <div
