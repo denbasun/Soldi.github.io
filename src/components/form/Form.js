@@ -74,9 +74,8 @@ const Form = memo(({isOpen, handleClick}) =>{
 
     const sendEmail = (e)=>{
         e.preventDefault()
-        if(!formError){
-            setDisabled(true)
-        }
+        setDisabled(true)
+
         const errors = validateForm()
         setFormError(errors)
         
