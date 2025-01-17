@@ -48,7 +48,7 @@ function Reviews({setRef}) {
             setRef(reviewsRef)
         }
         return () => {
-            reviewsRef.current = null;// очистка рефа после размонтирования
+            reviewsRef.current = null;
         };
     },[])
 
@@ -58,12 +58,14 @@ function Reviews({setRef}) {
 
     const handlers = useSwipeable({
         onSwipedLeft: () => {
-          setClickedDotId(clickedDotId < dots.length-1 ? clickedDotId+1 : 0); // Вызов вашей функции
+          setClickedDotId(clickedDotId < dots.length-1 ? clickedDotId+1 : 0); 
         },
         onSwipedRight: () => {
-            setClickedDotId(clickedDotId > 0 ? clickedDotId-1 : dots.length-1); // Вызов вашей функции
+            setClickedDotId(clickedDotId > 0 ? clickedDotId-1 : dots.length-1); 
         },
         preventDefaultTouchmoveEvent: true,
+        trackTouch: true, 
+        trackMouse: false, 
     });
     
     const dots = useMemo(() => {

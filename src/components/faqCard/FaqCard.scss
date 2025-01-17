@@ -39,7 +39,12 @@
 @media (max-width: 414px) {
     .faq{
         &-card{
-            padding: 16px 5px;
+            padding: 16px 20px;
+            &-header{
+
+                font-size: 14px;
+
+            }
         }
     }
 }
