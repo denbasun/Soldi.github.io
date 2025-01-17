@@ -57,11 +57,17 @@ function Reviews({setRef}) {
     },[clickedDotId, SliderWidth])
 
     const handlers = useSwipeable({
-        onSwipedLeft: () => {
-          setClickedDotId(clickedDotId < dots.length-1 ? clickedDotId+1 : 0); 
+        onSwipedLeft: (eventData) => {
+            if (eventData.deltaX > 50){
+                setClickedDotId(clickedDotId < dots.length-1 ? clickedDotId+1 : 0); 
+            }
+         
         },
-        onSwipedRight: () => {
-            setClickedDotId(clickedDotId > 0 ? clickedDotId-1 : dots.length-1); 
+        onSwipedRight: (eventData) => {
+            if (eventData.deltaX > 50){
+                setClickedDotId(clickedDotId > 0 ? clickedDotId-1 : dots.length-1); 
+            }
+            
         },
         preventDefaultTouchmoveEvent: true,
         trackTouch: true, 
