@@ -17,12 +17,13 @@
             display: flex;
             justify-content: center;
             align-items:center;
+            width: 8%;
             .dot{
                 display: block;
                 border-radius: 100%;
                 width: 8px;
                 height: 8px;
-                margin-right: 8px;
+                margin: 0 auto;
                 background-color: #fff;
                 user-select: none;
                 cursor: pointer;
@@ -43,11 +44,54 @@
     }
 }
 
+@media (max-width: 1200px) {
+    .reviews{
+        &-slider{
+            .dots{
+                width: 10%;
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .reviews{
+        &-slider{
+            .dots{
+                width: 20%;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .reviews{
+        &-slider{
+            .dots{
+                width: 40%;
+            }
+        }
+    }
+}
+
 @media (max-width: 576px) {
     .reviews{
         &-slider{
+            .dots{
+                width: 60%;
+            }
             .reviews-card-wrapper{
                     margin: 36px 20px 32px 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 414px) {
+    .reviews{
+        &-slider{
+            .dots{
+                width: 80%;
             }
         }
     }

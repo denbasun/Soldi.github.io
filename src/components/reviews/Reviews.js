@@ -31,7 +31,6 @@ function Reviews({setRef}) {
 
     useEffect(()=>{
         setClickedDotId(0)
-
     },[value])
     
     const updateSizes = useCallback(() => {
