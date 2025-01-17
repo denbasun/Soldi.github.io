@@ -31,7 +31,8 @@ function Reviews({setRef}) {
     
     const updateSizes = useCallback(() => {
         setValue(getSlideValue());
-        // setClickedDotId(0);
+        
+        setClickedDotId(0);
         if (sliderRef.current) {
             setSliderWidth(sliderRef.current.getBoundingClientRect().width);
         }
@@ -57,17 +58,15 @@ function Reviews({setRef}) {
     },[clickedDotId, SliderWidth])
 
     const handlers = useSwipeable({
-        onSwipedLeft: (eventData) => {
-            if (Math.abs(eventData.deltaX) < 50) { // Проверяем модуль для любого направления
-              setClickedDotId((prev) => (prev < dots.length - 1 ? prev + 1 : 0)); // Переход вперед
-            }
+        onSwipedLeft: () => {
+            setClickedDotId((prev) => (prev < dots.length - 1 ? prev + 1 : 0))
           },
-          onSwipedRight: (eventData) => {
-            if (Math.abs(eventData.deltaX) < 50) { // Проверяем модуль для любого направления
-              setClickedDotId((prev) => (prev > 0 ? prev - 1 : dots.length - 1)); // Переход назад
-            }
-          },
-
+        onSwipedRight: () => {
+        setClickedDotId((prev) => (prev > 0 ? prev - 1 : dots.length - 1))
+        },
+        preventDefaultTouchmoveEvent: true, 
+        trackTouch: true,
+        trackMouse: false,
     });
     
     const dots = useMemo(() => {
