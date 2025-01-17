@@ -32,11 +32,11 @@ function Reviews({setRef}) {
     const updateSizes = useCallback(() => {
         setValue(getSlideValue());
         
-        // setClickedDotId(0);
+        setClickedDotId(0);
         if (sliderRef.current) {
             setSliderWidth(sliderRef.current.getBoundingClientRect().width);
         }
-    }, []);
+    }, [setSliderWidth]);
 
     useEffect(() => {
         window.addEventListener('resize', updateSizes);
@@ -62,7 +62,7 @@ function Reviews({setRef}) {
             setClickedDotId((prev) => (prev < dots.length - 1 ? prev + 1 : 0))
           },
         onSwipedRight: () => {
-            setClickedDotId((prev) => (prev > 0 ? prev - 1 : dots.length - 1))
+        setClickedDotId((prev) => (prev > 0 ? prev - 1 : dots.length - 1))
         },
         preventDefaultTouchmoveEvent: true, 
         trackTouch: true,
