@@ -28,12 +28,17 @@ function Reviews({setRef}) {
         const match = breakpoints.find(({ max }) => window.matchMedia(`(max-width: ${max}px)`).matches);
         return match ? match.value : 4;
     }
+
+    useEffect(()=>{
+        setClickedDotId(0)
+
+    },[value])
     
     const updateSizes = useCallback(() => {
         setValue(getSlideValue());
-        setClickedDotId(0);
-        // if(clickedDotId > dotsArr.length){
-        //    
+       
+        // if(clickedDotId == dotsArr.length-1){
+            
         // }
         if (sliderRef.current) {
             setSliderWidth(sliderRef.current.getBoundingClientRect().width);
@@ -44,7 +49,7 @@ function Reviews({setRef}) {
         window.addEventListener('resize', updateSizes);
         updateSizes();
         return () => window.removeEventListener('resize', updateSizes);
-    }, []);
+    }, [updateSizes]);
 
     useEffect(()=>{
         if(reviewsRef.current){
