@@ -31,7 +31,7 @@ function Reviews({setRef}) {
     
     const updateSizes = useCallback(() => {
         setValue(getSlideValue());
-        setClickedDotId(0);
+        // setClickedDotId(0);
         if (sliderRef.current) {
             setSliderWidth(sliderRef.current.getBoundingClientRect().width);
         }
