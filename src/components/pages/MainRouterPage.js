@@ -9,39 +9,26 @@ import Reviews from '../reviews/Reviews';
 import Fees from '../fees/Fees';
 import HowToStart from '../howToStart/HowToStart';
 import Contacts from '../contacts/Contacts';
-
 import '../../style/style.scss';
 import {useRef, useEffect, useCallback} from 'react';
 
-
 const MainRouterPage = ({getRefArr})=>{
-    console.log('Render MainRouterPage')
-    
     const childRef = useRef([]);
-
     useEffect(() => {
-        // Cleanup: сбросить рефы при размонтировании компонента
         return () => {
             childRef.current = [];
         };
       }, []);
-    
     const addRef = (ref) => {
-       
         if (ref && !childRef.current.includes(ref)) {
             childRef.current.push(ref);
         }
-       
     };
-
     const handleSendData = useCallback(() => {
         getRefArr(childRef.current);
     }, [getRefArr]);
-
     useEffect(()=>{
-
         handleSendData()
-
     },[handleSendData])
 
     return(
@@ -56,7 +43,6 @@ const MainRouterPage = ({getRefArr})=>{
             <Reviews setRef={addRef}></Reviews>
             <Contacts setRef={addRef}></Contacts>
         </>
-
     )
 }
 export default MainRouterPage;

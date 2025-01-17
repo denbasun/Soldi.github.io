@@ -2,11 +2,9 @@
     min-height: 670px;
     padding-top: 120px;
     &-slider{
-        
         .reviews-card-wrapper{
-                
-                margin: 36px 104px 32px 120px;
-                overflow: hidden;
+            margin: 36px 104px 32px 120px;
+            overflow: hidden;
             .slider-wrapper{
                 display: flex;
                 justify-content: flex-start;
@@ -15,12 +13,10 @@
             }
         }
         .dots{
-            // margin-top: 32px;
             margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items:center;
-            
             .dot{
                 display: block;
                 border-radius: 100%;
@@ -34,10 +30,7 @@
                     @media (hover: hover) {
                         box-shadow: 0px 1px 14px  rgba(58, 134, 255, 1);
                         background-color: #3a86ff;
-                    
-                        
-                      }
-                    
+                    }
                 }
             }
             .active{
@@ -45,7 +38,6 @@
                 width: 51px;
                 box-shadow: 0px 1px 14px  rgba(58, 134, 255, 1);
                 background-color: #3a86ff;
-                
             }
         }
     }
@@ -56,11 +48,7 @@
         &-slider{
             .reviews-card-wrapper{
                     margin: 36px 20px 32px 20px;
-
-               
             }
-            
         }
     }
-   
 }

@@ -6,7 +6,6 @@
     .about-info-wrapper{
         min-height: 247px;
         width: 35%;
-        
         .about-descr{
             margin-top: 36px;
             font-weight: 400;
@@ -21,25 +20,12 @@
     .about-us{
         .about-info-wrapper{
             width: 50%;
-           
         }
         .about-us-pic{
             width: 400px
         }
     }
 }
-
-// @media (max-width: 1000px) {
-//     .about-us{
-//         .about-info-wrapper{
-//             width: 50%;
-//         }
-//         .about-us-pic{
-//             margin-left: 20px;
-//             width: 60%
-//         }
-//     }
-// }
 
 @media (max-width: 992px) {
     .about-us{
@@ -66,7 +52,6 @@
         .about-us-pic{
             width: 80%;
         }
-        
         padding: 57px 20px 135px 20px;
     }
 }
@@ -78,6 +63,4 @@
         }
         padding: 57px 20px 80px 20px;
     }
-
-    
 }

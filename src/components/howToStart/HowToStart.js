@@ -19,7 +19,6 @@ function HowToStart({setRef}) {
 
     return(
         <section  ref ={howToStartRef} id={3} className="how-to-start">
-          
             <div className="text-header">
                 <div className="blue-text">{t('howToStart.blueText')}</div>
                 <h2>{t('howToStart.h2')}</h2>
@@ -39,4 +38,4 @@ function HowToStart({setRef}) {
     )
 }
   
-  export default HowToStart;
+export default HowToStart;

@@ -3,7 +3,6 @@ import FormDone from '../formDone/FormDone';
 import { useTranslation } from 'react-i18next'
 import './Form.scss';
 const Form = memo(({isOpen, handleClick}) =>{
-    console.log('Form render')
     const [formData, setFormData] = useState({
         userName: '',
         userEmail: '',
@@ -23,22 +22,19 @@ const Form = memo(({isOpen, handleClick}) =>{
     const validateForm = useCallback(() =>{
         let error = {}
         if(formData.userName.length < 2){
-            error.userName = 'Name must be at least 2 characters long.'
+            error.userName = 'error.errorName'
         }
         if(!isEmailValid(formData.userEmail)){
-            error.userEmail = 'Invalid email format.'
+            error.userEmail = 'error.errorEmail'
         }
         if(formData.userMessage < 1){
-            error.userMessage = 'Message cannot be empty.'
+            error.userMessage = 'error.errorMessage'
         }
-
         return error
     },[formData, isEmailValid])
 
     const onInputChange = useCallback((e)=>{
-        
         const { name, value } = e.target;
-
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
@@ -57,6 +53,7 @@ const Form = memo(({isOpen, handleClick}) =>{
         if (formDone) {
             timeout = setTimeout(() => {
                 setFormDone(false);
+
                 if(handleClick){
                     handleClick()
                 }
@@ -64,7 +61,7 @@ const Form = memo(({isOpen, handleClick}) =>{
             }, 3000);
         }
         return () => clearTimeout(timeout); // Очистка таймаута
-    }, [formDone]);
+    }, [formDone, formError]);
 
     const resetForm = () => {
         setFormData({
@@ -77,13 +74,13 @@ const Form = memo(({isOpen, handleClick}) =>{
 
     const sendEmail = (e)=>{
         e.preventDefault()
-
-        setDisabled(true)
+        if(!formError){
+            setDisabled(true)
+        }
         const errors = validateForm()
         setFormError(errors)
         
         if(Object.values(errors).length === 0){
-    
             fetch('https://api.emailjs.com/api/v1.0/email/send', {
                 method: 'POST',
                 headers: {
@@ -99,7 +96,6 @@ const Form = memo(({isOpen, handleClick}) =>{
                         message: formData.userMessage,
                     },
                 }),
-               
             }).then(res => {
                     setFormDone(true)
                     setDisabled(false)
@@ -109,6 +105,7 @@ const Form = memo(({isOpen, handleClick}) =>{
                 }else{
                     console.log('Server error during email sending');
                     setResOk(false)
+                    
                 }
                
             }).catch(res => {
@@ -119,7 +116,6 @@ const Form = memo(({isOpen, handleClick}) =>{
                 resetForm()
             })
         }
-        
     }
     return (
         <>
@@ -130,31 +126,28 @@ const Form = memo(({isOpen, handleClick}) =>{
                         <div className="form-group">
                             <label htmlFor="name">{t('formCard.name')}</label>
                             <input onChange={(e) =>onInputChange(e)}  value={formData.userName} type="text" id="name" name="userName"  placeholder="John Smith"/>
-                            {<div className='error'>{formError ? formError.userName : null}</div>}
+                            {<div className='error'>{t(formError ? formError.userName : null)}</div>}
                         </div>
                         
                         <div className="form-group">
                             <label htmlFor="email">{t('formCard.email')} <span>*</span></label>
                             <input onChange={(e) =>onInputChange(e)}  value={formData.userEmail} type="email" id="email" name="userEmail"  placeholder="example@gmail.com"/>
-                            {<div className='error'>{formError ? formError.userEmail : null}</div>}
+                            {<div className='error'>{t(formError ? formError.userEmail : null)}</div>}
                         </div>
                         
                         <div className="form-group">
                             <label htmlFor="message">{t('formCard.message')}</label>
                             <input onChange={(e) =>onInputChange(e)}  value={formData.userMessage}  type="message" id="message" name="userMessage" placeholder="Write here your message."/>
-                            {<div className='error'>{formError ? formError.userMessage : null}</div>}
+                            {<div className='error'>{t(formError ? formError.userMessage : null)}</div>}
                         </div>
                         
                         <button type="submit" value="Send" className={ disabled ? "button button-submit_disabled" : "button button-submit" }>{t('formCard.button')}</button>
                         
                     </form>
-                    
                 </div>
                 :<FormDone resOK={resOK}></FormDone>
             }
         </>
-        
-        
     )
 })
 

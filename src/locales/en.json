@@ -64,6 +64,11 @@
         "message":"Message",
         "button":"Send"
     },
+    "formDone":{
+        "successPart1": "Thank you for contacting us!",
+        "successPart2": "Our team will respond within 24 hours.",
+        "fail": "Something wrong happened."
+    },
     "faq": {
         "blueText": "FAQ",
         "h2": "Wellcome to help center",
@@ -84,6 +89,10 @@
         "answer7": "Yes, SOLDY prioritizes the security of transactions by partnering with trusted providers and implementing robust risk management strategies.",
         "stillQuestion": "Still have a question?",
         "writeUs": "Write us!"
+    },
+    "error": {
+        "errorName": "Name must be at least 2 characters long.",
+        "errorEmail":"Invalid email format.",
+        "errorMessage": "Message cannot be empty."
     }
-
 }

@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import './App.scss';
 import Header from '../header/Header';
 import MainRouterPage from '../pages/MainRouterPage';
@@ -10,14 +9,10 @@ import { I18nextProvider } from 'react-i18next';
 import i18n from '../../i18n';
 
 function App() {
-    console.log('Render App')
-
     const [refArr, setRefArr] = useState([])
-
     const getRefArr = (arr) =>{   
         setRefArr(arr)
     }
-
     const getRefs = async () => {
         return new Promise((resolve) => {
             resolve(refArr);
@@ -40,7 +35,6 @@ function App() {
                 </section>
             </Router>
         </I18nextProvider>
-        
     );
 }
 

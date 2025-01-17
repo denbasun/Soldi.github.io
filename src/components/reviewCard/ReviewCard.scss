@@ -1,6 +1,5 @@
 .review-card{
     border-radius: 20px;
-    // max-width: 288px;
     height: 292px;
     backdrop-filter: blur(10px);
     background-color: #111;
@@ -23,7 +22,6 @@
             height: 42px;
         }
     }
-
     .review-text{
         height: 145px;
         margin-top: 24px;
@@ -51,20 +49,15 @@
                     font-size: 14px;
                 }
             }
-           
         }
         .review-text{
             margin-top: 14px;
         }
     }
-   
 }
 
- 
 @media (max-width: 768px) {
     .review-card{
         margin-right: 0px;
-
     }
-   
 }

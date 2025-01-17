@@ -15,8 +15,6 @@ const linksData = [
 ]
 
 const Header = memo(({childRefs}) =>{
-    console.log('Header render ')
-    
     const [clickedId, setClickedId] = useState(null);
     const [activeRef, setActiveRef] = useState(0);
     const { t, i18n } = useTranslation();
@@ -32,21 +30,16 @@ const Header = memo(({childRefs}) =>{
         setClickedBurger(false)
         setClickedId(index);
         window.scrollTo({
-          top: offset,
-          behavior: 'smooth',
+            top: offset,
+            behavior: 'smooth',
         });
     }, []);
 
     useEffect(() => {
-		// Функция для обновления ширины
 		const handleResize = () => {
 		    setWindowWidth(window.innerWidth);
 		};
-
-		// Подписываемся на событие изменения размера окна
 		window.addEventListener("resize", handleResize);
-
-		// Чистим обработчик при размонтировании компонента
 		return () => {
 		window.removeEventListener("resize", handleResize);
 		};
@@ -56,12 +49,9 @@ const Header = memo(({childRefs}) =>{
 
     useEffect(() => {
         const loadData = async() =>{
-            
             const result = await childRefs()
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
-                   
                     if(entry.isIntersecting){
                         
                         setActiveRef(entry.target.id)
@@ -69,27 +59,23 @@ const Header = memo(({childRefs}) =>{
                     }      
                 });
             }, {
-                root: null, // Наблюдаем за viewport
-                rootMargin: '-50% 0px', // Центр экрана становится границей отслеживания
-                threshold: 0 // Срабатывает, как только верхняя часть элемента пересечёт границу
+                root: null, //  watching for viewport
+                rootMargin: '-50% 0px', // The center of the screen becomes the tracking boundary.
+                threshold: 0 // It triggers as soon as the top part of the element crosses the boundary.
             });
 
             result.forEach((item, i) => {
                 if(clickedId == i-1) {
-                    
                     if(item.current){
-                       
                         const offset = 100; // Отступ для нашей фиксированного nav меню
                         const elementPosition = item.current.getBoundingClientRect().top + window.scrollY;
                         const offsetPosition = elementPosition - offset;
-    
                         handleClick(clickedId, offsetPosition)
                     }
                 }
                 if(clickedId == 5){
                     setActiveRef(6)
                     handleClick(clickedId, 0)
-                    
                 }
                 if (item.current) {
                     observer.observe(item.current);
@@ -102,7 +88,6 @@ const Header = memo(({childRefs}) =>{
                         observer.unobserve(ref.current);
                     }
                 });
-                
             };
         }
             
@@ -121,15 +106,12 @@ const Header = memo(({childRefs}) =>{
                     <img src={logo} alt="logo" ></img>
                 </Link >
 
-
                 <ul className={smallWidth ? (!clickedBurger ? "nav-links hide" : "nav-links nav-links-burger") : "nav-links"}>
                     {linksData.map((element, i)=>{
                         const {id, text} = element
                         const clazz = id <= linksData.length-1 ? 'link' : 'faq'
                         return(
-                        
                             <li  key={id}><Link to={i === 5 ? "/help" : '/'} onClick={() => handleClick(i)} className={activeRef == id ? `${clazz} ${clazz}-active` : `${clazz}`}>{t(text)}</Link></li>
-                            
                         )
                     })}
                 </ul>
@@ -149,13 +131,11 @@ const Header = memo(({childRefs}) =>{
                     <span></span>
                     <span></span>
                 </div> : null}
-                
             </nav>
-            
             <hr className={clickedBurger ? "line line-burger" : 'line'}/>
         </section>
     );
   })
   
-  export default Header;
+export default Header;
   

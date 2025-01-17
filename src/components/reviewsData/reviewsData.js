@@ -1,6 +1,4 @@
-
 const reviewsData = [
-    
     {img: 'user1.png', name: 'Din Johnson', text: 'reviewsCard.reviewText1', mark: 5, PaymentMethod: "MasterCard", data: 'reviewsCard.footerData1'},
     {img: 'user2.png', name: 'John Carter', text: 'reviewsCard.reviewText2', mark: 5, PaymentMethod: "Visa", data: 'reviewsCard.footerData2'},
     {img: 'user3.png', name: 'Dean Carrager', text: 'reviewsCard.reviewText3', mark: 5, PaymentMethod: "MasterCard", data: 'reviewsCard.footerData3'},
@@ -10,7 +8,6 @@ const reviewsData = [
     {img: 'user7.png', name: 'Sophia White', text: 'reviewsCard.reviewText7', mark: 5, PaymentMethod: "Visa", data: 'reviewsCard.footerData7'},
     {img: 'user8.png', name: 'Pamela Green', text: 'reviewsCard.reviewText8', mark: 5, PaymentMethod: "Apple Pay", data: 'reviewsCard.footerData8'},
     {img: 'user9.png', name: 'Olivia Brown', text: 'reviewsCard.reviewText8', mark: 5, PaymentMethod: "PayPal", data: 'reviewsCard.footerData9'},
-    
 ]
 
 export default reviewsData

@@ -7,7 +7,6 @@ import Portal from '../portal/Portal';
 import { useTranslation } from 'react-i18next'
 
 function MainPage({setRef}) {
-	console.log('MainPage render')
 	const { t } = useTranslation()
 	const [modalOpen, setModalOpen] = useState(false)
 	const  mainPageRef = useRef(null);
@@ -16,7 +15,6 @@ function MainPage({setRef}) {
 		if (mainPageRef.current) {
 			setRef(mainPageRef);
 		}
-
 		return () => {
             mainPageRef.current = null;// очистка рефа после размонтирования
 		}	
@@ -24,7 +22,6 @@ function MainPage({setRef}) {
 
 	const toggleModal = useCallback(() => {
 		const scrollWidth = window.innerWidth - document.documentElement.clientWidth;
-	
 		if (modalOpen) {
 			document.body.style.overflow = '';
 			document.body.style.paddingRight = '0';
@@ -32,7 +29,6 @@ function MainPage({setRef}) {
 			document.body.style.overflow = 'hidden';
 			document.body.style.paddingRight = `${scrollWidth}px`;
 		}
-	
 		setModalOpen(!modalOpen);
 	}, [modalOpen]);
 
@@ -47,7 +43,6 @@ function MainPage({setRef}) {
 				<Modal isOpen={modalOpen} handleClick = {toggleModal}></Modal>
 			</Portal>
 		</section>
-
 	);
 }
 

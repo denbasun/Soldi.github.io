@@ -9,16 +9,13 @@ const importAll = (r) => r.keys().map(r);
 const images = importAll(require.context('../../../src/assets/users_images', false, /\.png$/));
 
 function Reviews({setRef}) {
-    console.log('Review render')
     const { t } = useTranslation()
     const [value, setValue] = useState(getSlideValue);
     const [SliderWidth, setSliderWidth] = useState(0);
     const [offset, setOffset] = useState(0)
     const [clickedDotId, setClickedDotId] = useState(0)
-
     const reviewsRef = useRef(null);
     const sliderRef = useRef(null);
-    
     const slideCardWidth = useMemo(() => Math.round(SliderWidth / value), [SliderWidth, value]);
     const fieldWidth = useMemo(() => `${(100 * reviewsData.length) / value}%`, [reviewsData.length, value]);
 
@@ -47,27 +44,23 @@ function Reviews({setRef}) {
     }, [updateSizes]);
 
     useEffect(()=>{
-       
         if(reviewsRef.current){
             setRef(reviewsRef)
         }
-       
         return () => {
             reviewsRef.current = null;// очистка рефа после размонтирования
         };
-        
     },[])
-
 
     useEffect(()=>{
         setOffset(-SliderWidth*clickedDotId)
     },[clickedDotId, SliderWidth])
 
     const handlers = useSwipeable({
-        onSwipedRight: () => {
+        onSwipedLeft: () => {
           setClickedDotId(clickedDotId < dots.length-1 ? clickedDotId+1 : 0); // Вызов вашей функции
         },
-        onSwipedLeft: () => {
+        onSwipedRight: () => {
             setClickedDotId(clickedDotId > 0 ? clickedDotId-1 : dots.length-1); // Вызов вашей функции
         },
         preventDefaultTouchmoveEvent: true,
@@ -87,7 +80,6 @@ function Reviews({setRef}) {
         }
         return dotsArr;
     }, [clickedDotId, value]);
-    
     
     return(
         <section ref={reviewsRef} id={4} className="reviews">
@@ -109,16 +101,13 @@ function Reviews({setRef}) {
                             }
                         </div>
                     </div>
-                    
                 </div>
                 <div className="dots">
                         {dots}
                 </div>
             </div>
         </section>
-        
-
     )
 }
   
-  export default Reviews;
+export default Reviews;

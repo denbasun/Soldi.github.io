@@ -57,13 +57,17 @@
         "footerData8": "8 Října, 2024",
         "footerData9": "2 Listopadu, 2023"
     },
-   
     "formCard": {
         "h2": "Kontaktujte nás",
         "name": "Vaše jméno",
         "email": "Váš email",
         "message": "Zpráva",
         "button": "Odeslat"
+    },
+    "formDone":{
+        "successPart1": "Děkujeme, že jste nás kontaktovali!",
+        "successPart2": "Náš tým vám odpoví do 24 hodin.",
+        "fail": "Něco se pokazilo."
     },
     "faq": {
         "blueText": "FAQ",
@@ -85,5 +89,10 @@
         "answer7": "Ano, SOLDY klade velký důraz na bezpečnost transakcí tím, že spolupracuje s důvěryhodnými poskytovateli a implementuje silné strategie řízení rizik.",
         "stillQuestion": "Máte stále otázky?",
         "writeUs": "Napište nám!"
+    },
+    "error": {
+        "errorName": "Jméno musí obsahovat alespoň 2 znaky.",
+        "errorEmail": "Neplatný formát e-mailu.",
+        "errorMessage": "Zpráva nemůže být prázdná."
     }
 }

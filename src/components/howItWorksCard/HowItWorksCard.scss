@@ -17,26 +17,23 @@
         bottom: 0;
     }
 }
+
 #item1{
     grid-column-start: 1;
     grid-column-end: 3;
-   
-    
 }
+
 #item2{
     grid-column-start: 3;
     grid-column-end: 5;
     img{
-        right: 40px;
-        
+        right: 40px; 
     }
-    
 }
 
 #item3{
     grid-column-start: 5;
     grid-column-end: 7;
-    
 }
 
 #item4{
@@ -48,7 +45,6 @@
     }
 }
     
-
 #item5{
     grid-column-start: 4;
     grid-column-end: 7;
@@ -87,41 +83,28 @@
         .step{
             width: 80%;
             font-size: 18px;
-            
         }
     }
     #item1{
         grid-column-start: 1;
         grid-column-end: 2;
-       
-        
     }
     #item2{
         grid-column-start: 1;
         grid-column-end: 2;
-       
-        
     }
     #item3{
         grid-column-start: 1;
         grid-column-end: 2;
-       
-        
     }
     #item4{
         grid-column-start: 1;
         grid-column-end: 2;
-       
-        
     }
     #item5{
         grid-column-start: 1;
         grid-column-end: 2;
-        
-       
-        
     }
-   
 }
 
 

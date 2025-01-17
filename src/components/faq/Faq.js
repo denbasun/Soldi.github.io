@@ -1,4 +1,3 @@
-
 import './Faq.scss';
 import '../../style/style.scss';
 import unionCirclesPic from '../../../src/assets/Union_circles_2.png'
@@ -15,7 +14,6 @@ const faqData = [
 ]
 
 const Faq = () =>{
-    console.log("Faq render")
     const { t } = useTranslation();
     return(
         <section className="faq">
@@ -35,7 +33,6 @@ const Faq = () =>{
             </div>
             <div className='stillQuestion'><h2>{t('faq.stillQuestion')}</h2></div>
             <div className="faq-descr">{t('faq.writeUs')}</div>
-            
         </section>
     )
 }

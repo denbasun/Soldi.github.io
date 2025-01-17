@@ -7,11 +7,10 @@ const ReviewCard = memo((props) =>{
     for(let i = 0; i<userMark; i++){
         starArr.push(<img src={star} alt="star" key={i}/>)
     }
-    // console.log(sliderWidth)
+
     return(
         <div style={{
-                width: slideWidth+'px'}}// Задаем ширину через пропс
-
+                width: slideWidth+'px'}}
             className="review-card">
             <div className="user-header">
                 <img className ="user-img" src={userImg} alt="user image" />
@@ -21,7 +20,6 @@ const ReviewCard = memo((props) =>{
                         {starArr}
                     </div>
                 </div>
-                
             </div>
         <div className="review-text">
             {userText}

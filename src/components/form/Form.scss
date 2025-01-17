@@ -30,20 +30,18 @@
                 }
                 pointer-events: none;
             }
-            
         }
         .error{
             font-size: 14px;
             height: 15px;
             color: red;
         }
-        
     }
 }
 
 @media (max-width: 576px) {
     .form-card{
-        height: 450px;
+        height: 430px;
         padding: 15px 15px 15px 15px;
         .contact-form{
             .form-group{
@@ -54,4 +52,16 @@
         }   
     }
 }
+
+@media (max-width: 414px) {
+    .form-card{
+        height: 460px;
+        .contact-form{
+            .form-group{
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
 

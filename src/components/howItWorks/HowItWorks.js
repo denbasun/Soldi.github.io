@@ -34,7 +34,6 @@ function HowItWorks({setRef}) {
     return(
         <section ref={HowItWorksRef} id={2} className="how-it-works">
             <img className="union-circles-pic" src={unionCirclesPic} alt="union circles picture" />
-
             <div className="text-header">
                 <div  className="blue-text">{t('howItWorks.blueText')}</div>  
                 <h2>{t('howItWorks.h2')}</h2>
@@ -54,13 +53,9 @@ function HowItWorks({setRef}) {
                      )   
                 })
                 }
-        
             </div>
-           
         </section>
-        
-
     )
 }
   
-  export default HowItWorks;
+export default HowItWorks;

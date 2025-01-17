@@ -12,32 +12,32 @@ const svgLine = <svg width="2" height="110" viewBox="0 0 2 110" fill="none" xmln
 
 function Fees() {
     return (
-      <section className="fees">
-          <img className="union-circles-pic" src={unionCirclesPic} alt="union circles picture" />
-          <div className="fees-card">
-                <div className="visa-mastercard">
-                    <div className="percentage">7%</div>
-                    <div className="percentage-name">VISA/MasterCard</div>
-                </div>
-                {svgLine}
-                <div className="p2p">
-                    <div className="percentage">6%</div>
-                    <div className="percentage-name">P2P</div>
-                </div>
-                {svgLine}
-                <div className="eps">
-                    <div className="percentage">6%</div>
-                    <div className="percentage-name">EPS</div>
-                </div>
-                {svgLine}
-                <div className="payment-methods">
-                    <div className="percentage">20+</div>
-                    <div className="percentage-name">Payment methods</div>
-                </div>
-          </div>
-      </section>
-    );
-  }
+		<section className="fees">
+			<img className="union-circles-pic" src={unionCirclesPic} alt="union circles picture" />
+			<div className="fees-card">
+				<div className="visa-mastercard">
+					<div className="percentage">7%</div>
+					<div className="percentage-name">VISA/MasterCard</div>
+				</div>
+				{svgLine}
+				<div className="p2p">
+					<div className="percentage">6%</div>
+					<div className="percentage-name">P2P</div>
+				</div>
+				{svgLine}
+				<div className="eps">
+					<div className="percentage">6%</div>
+					<div className="percentage-name">EPS</div>
+				</div>
+				{svgLine}
+				<div className="payment-methods">
+					<div className="percentage">20+</div>
+					<div className="percentage-name">Payment methods</div>
+				</div>
+			</div>
+		</section>
+	);
+}
   
 export default Fees;
   

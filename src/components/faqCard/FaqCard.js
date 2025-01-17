@@ -10,9 +10,7 @@ const svgArrowBottom = <svg width="12" height="7" viewBox="0 0 12 7" fill="none"
 </svg>
 
 const FaqCard = ({i, question, answer}) =>{
-    console.log("FaqCard render")
     const [active, setActive] = useState(false)
-
     const hendleClick = (e)=>{
         setActive((active) => !active)
     }
