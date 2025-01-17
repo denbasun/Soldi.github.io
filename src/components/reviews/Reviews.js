@@ -5,6 +5,7 @@ import { useRef, useEffect, useState, useMemo, useCallback } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import { useTranslation } from 'react-i18next'
 import reviewsData from '../reviewsData/reviewsData';
+import swipeImg from '../../assets/finger_swipe.png'
 const importAll = (r) => r.keys().map(r);
 const images = importAll(require.context('../../../src/assets/users_images', false, /\.png$/));
 
@@ -111,6 +112,7 @@ function Reviews({setRef}) {
                         </div>
                     </div>
                 </div>
+                <img className='swipeImg' src={swipeImg} alt="" />
                 <div className="dots">
                         {dots}
                 </div>
