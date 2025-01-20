@@ -74,9 +74,9 @@ const Form = memo(({isOpen, handleClick}) =>{
 
     const sendEmail = (e)=>{
         e.preventDefault()
-        setDisabled(true)
-
+       
         const errors = validateForm()
+
         setFormError(errors)
         
         if(Object.values(errors).length === 0){
@@ -149,5 +149,4 @@ const Form = memo(({isOpen, handleClick}) =>{
         </>
     )
 })
-
 export default Form
