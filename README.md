@@ -1,7 +1,7 @@
 SOLDI
 # Payment Solution Web Application
 
-This web application prototype was developed for a Ukrainian startup to showcase a payment solution concept. It provides businesses with information on how they can accept fiat currency from clients and receive cryptocurrency in their accounts.
+This web application prototype was developed for startup to showcase a payment solution concept. It provides businesses with information on how they can accept fiat currency from clients and receive cryptocurrency in their accounts.
 
 ## Features
 - **User-Friendly Interface**: Designed in collaboration with the design team for an intuitive experience.
