@@ -25,11 +25,12 @@
             }
         }
     }
+    &-off{
+        display: none;
+    }
 }
 
-.modal-off{
-    display: none;
-}
+
 
 @media (max-width: 768px) {
     .modal-overlay{

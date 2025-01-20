@@ -78,6 +78,12 @@ const Form = memo(({isOpen, handleClick}) =>{
         const errors = validateForm()
 
         setFormError(errors)
+
+        if(!errors){
+            setDisabled(true)
+        }else{
+            setDisabled(false)
+        }
         
         if(Object.values(errors).length === 0){
             fetch('https://api.emailjs.com/api/v1.0/email/send', {
