@@ -78,11 +78,10 @@ const Form = memo(({isOpen, handleClick}) =>{
         const errors = validateForm()
 
         setFormError(errors)
-
-        if(!errors){
-            setDisabled(true)
-        }else{
+        if(Object.values(errors).length !== 0){
             setDisabled(false)
+        }else{
+            setDisabled(true)
         }
         
         if(Object.values(errors).length === 0){
