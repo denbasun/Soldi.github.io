@@ -48,6 +48,7 @@
             .how-to-start-card{
                 .how-to-start-text{
                     width: 40%;
+                    margin: 32px 20px;
                 }
                 .scan-picture{
                     right: 1px;
@@ -77,6 +78,23 @@
            .how-to-start-card{
             width: 80%;
            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .how-to-start{
+        .how-to-start-card-wrapper{
+            .how-to-start-card{
+                .how-to-start-text{
+                    width: 80%;
+                }
+                .how-to-start-text-special{
+                    margin: 20px 0 0  20px ;
+
+                }
+            }
+            
         }
     }
 }
